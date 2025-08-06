@@ -1,0 +1,510 @@
+# ASSUMPTION QUESTIONS
+# Total: 46 questions
+================================================================================
+
+QUESTION #3
+Type: assumption
+Company: Costco
+
+QUESTION:
+What is adjusted EBITDA for the year ending in 2024?
+
+EXPECTED ANSWER:
+$11,969 (in millions)
+--------------------------------------------------------------------------------
+
+QUESTION #5
+Type: assumption
+Company: Costco
+
+QUESTION:
+What is adjusted EBIT for the year ending in 2024?
+
+EXPECTED ANSWER:
+$9,396 (in millions)
+--------------------------------------------------------------------------------
+
+QUESTION #7
+Type: assumption
+Company: Costco
+
+QUESTION:
+Compute the adjusted EBITDA Margin for 2024. 
+
+EXPECTED ANSWER:
+4.70%
+--------------------------------------------------------------------------------
+
+QUESTION #14
+Type: assumption
+Company: Costco
+
+QUESTION:
+Determine the EV/EBITDA ratio for 2024. Make sure to adjust for EBITDA and use the market value of equity to estimate enterprise value. Make sure to hand calculated fully diluted shares outstanding. Assume the only non-operating asset is excess cash.
+
+EXPECTED ANSWER:
+35.44x
+--------------------------------------------------------------------------------
+
+QUESTION #15
+Type: assumption
+Company: Costco
+
+QUESTION:
+Calculate Enterprise Value for 2024 with the market value of equity. Make sure to hand calculated fully diluted shares outstanding. Assume the only non-operating asset is excess cash.
+
+EXPECTED ANSWER:
+$424,216 (in millions)
+--------------------------------------------------------------------------------
+
+QUESTION #16
+Type: assumption
+Company: Costco
+
+QUESTION:
+What is the Equity Value in 2024? Assume Enterprise Value is 420 Billion and assume the only non-operating asset not factored into Enterprise Value is excess cash.
+
+EXPECTED ANSWER:
+$414,640 (in millions)
+--------------------------------------------------------------------------------
+
+QUESTION #19
+Type: assumption
+Company: Costco
+
+QUESTION:
+Calculate WACC for 2024.
+
+EXPECTED ANSWER:
+9.56%
+--------------------------------------------------------------------------------
+
+QUESTION #20
+Type: assumption
+Company: Costco
+
+QUESTION:
+What is market debt to equity ratio?
+
+EXPECTED ANSWER:
+2.73%
+--------------------------------------------------------------------------------
+
+QUESTION #21
+Type: assumption
+Company: Costco
+
+QUESTION:
+What is the Debt to Value in 2024?
+
+EXPECTED ANSWER:
+2.65%
+--------------------------------------------------------------------------------
+
+QUESTION #22
+Type: assumption
+Company: Costco
+
+QUESTION:
+What is the Equity to Value in 2024?
+
+EXPECTED ANSWER:
+97.35%
+--------------------------------------------------------------------------------
+
+QUESTION #25
+Type: assumption
+Company: Costco
+
+QUESTION:
+What are the statutory / marginal taxes on adjusted EBIT?
+
+EXPECTED ANSWER:
+$2,255 (in millions)
+--------------------------------------------------------------------------------
+
+QUESTION #26
+Type: assumption
+Company: Costco
+
+QUESTION:
+What is the operating tax in 2024?
+
+EXPECTED ANSWER:
+$2,244 (in millions)
+--------------------------------------------------------------------------------
+
+QUESTION #27
+Type: assumption
+Company: Costco
+
+QUESTION:
+What is the operating cash tax in 2024?
+
+EXPECTED ANSWER:
+$2,283 (in millions)
+--------------------------------------------------------------------------------
+
+QUESTION #30
+Type: assumption
+Company: Costco
+
+QUESTION:
+What is the operating cash tax rate in 2024?
+
+EXPECTED ANSWER:
+24.30%
+--------------------------------------------------------------------------------
+
+QUESTION #32
+Type: assumption
+Company: Costco
+
+QUESTION:
+Calculate the Unlevered Beta for 2024.
+
+EXPECTED ANSWER:
+0.77
+--------------------------------------------------------------------------------
+
+QUESTION #33
+Type: assumption
+Company: Costco
+
+QUESTION:
+Compute Debt for 2024. Include Debt Equivalents.
+
+EXPECTED ANSWER:
+$11,415 (in millions)
+--------------------------------------------------------------------------------
+
+QUESTION #35
+Type: assumption
+Company: Costco
+
+QUESTION:
+Compute Net Debt for 2024.
+
+EXPECTED ANSWER:
+$271 (in millions)
+--------------------------------------------------------------------------------
+
+QUESTION #37
+Type: assumption
+Company: Costco
+
+QUESTION:
+Calculate ROIC for 2024.
+
+EXPECTED ANSWER:
+25.33%
+--------------------------------------------------------------------------------
+
+QUESTION #38
+Type: assumption
+Company: Costco
+
+QUESTION:
+Determine Invested Capital including Goodwill for 2024, using 2% of revenue as max potential operating cash.
+
+EXPECTED ANSWER:
+$29,239 (in millions)
+--------------------------------------------------------------------------------
+
+QUESTION #39
+Type: assumption
+Company: Costco
+
+QUESTION:
+Determine Invested Capital excluding Goodwill for 2024, using 2% of revenue as max potential operating cash.
+
+EXPECTED ANSWER:
+$28,245 (in millions)
+--------------------------------------------------------------------------------
+
+QUESTION #40
+Type: assumption
+Company: Costco
+
+QUESTION:
+Determine Invested Capital including Goodwill for 2023, using 2% of revenue as max potential operating cash.
+
+EXPECTED ANSWER:
+$26,915 (in millions)
+--------------------------------------------------------------------------------
+
+QUESTION #41
+Type: assumption
+Company: Costco
+
+QUESTION:
+Determine the Average Invested Capital (includes Goodwill) over 2023 and 2024.
+
+EXPECTED ANSWER:
+$28,077 (in millions)
+--------------------------------------------------------------------------------
+
+QUESTION #42
+Type: assumption
+Company: Costco
+
+QUESTION:
+What is the operating portion of long-term assets in 2024?
+
+EXPECTED ANSWER:
+$36,539 (in millions)
+--------------------------------------------------------------------------------
+
+QUESTION #43
+Type: assumption
+Company: Costco
+
+QUESTION:
+What is the operating portion of long-term assets in 2023?
+
+EXPECTED ANSWER:
+$34,029 (in millions)
+--------------------------------------------------------------------------------
+
+QUESTION #44
+Type: assumption
+Company: Costco
+
+QUESTION:
+I see that there is a long-term assets line item. What is the portion of other long-term assets that's not accounted for, that we don't know what line item is is for, in 2024?
+
+EXPECTED ANSWER:
+$961 (in millions)
+--------------------------------------------------------------------------------
+
+QUESTION #45
+Type: assumption
+Company: Costco
+
+QUESTION:
+What is the operating portion of long-term liabilities in 2024?
+
+EXPECTED ANSWER:
+$456 (in millions)
+--------------------------------------------------------------------------------
+
+QUESTION #46
+Type: assumption
+Company: Costco
+
+QUESTION:
+What is the operating portion of long-term liabilities in 2023?
+
+EXPECTED ANSWER:
+$452 (in millions)
+--------------------------------------------------------------------------------
+
+QUESTION #47
+Type: assumption
+Company: Costco
+
+QUESTION:
+What is the operating portion of long-term assets, net long-term liabilities in 2024?
+
+EXPECTED ANSWER:
+$36,083 (in millions)
+--------------------------------------------------------------------------------
+
+QUESTION #48
+Type: assumption
+Company: Costco
+
+QUESTION:
+What is the operating portion of long-term assets, net long-term liabilities in 2023?
+
+EXPECTED ANSWER:
+$33,577 (in millions)
+--------------------------------------------------------------------------------
+
+QUESTION #49
+Type: assumption
+Company: Costco
+
+QUESTION:
+What is the change in operating portion of long-term assets, net long-term liabilities from 2023 to 2024?
+
+EXPECTED ANSWER:
+$2,506 (in millions)
+--------------------------------------------------------------------------------
+
+QUESTION #50
+Type: assumption
+Company: Costco
+
+QUESTION:
+What is the portion of other long-term assets that's not accounted for in 2024, net of the portion of other long-term operating liabilities not accounted for?
+
+EXPECTED ANSWER:
+$505 (in millions)
+--------------------------------------------------------------------------------
+
+QUESTION #51
+Type: assumption
+Company: Costco
+
+QUESTION:
+After separating other long-term assets, net of long-term liabilities to find what portion of that number is unaccounted for, can you measure the change between 2023 and 2024 for that operating metric?
+
+EXPECTED ANSWER:
+$49 (in millions)
+--------------------------------------------------------------------------------
+
+QUESTION #52
+Type: assumption
+Company: Costco
+
+QUESTION:
+Calculate NOPAT for 2024. Make sure to make adjustments for one-time changes.
+
+EXPECTED ANSWER:
+$7,113 (in millions)
+--------------------------------------------------------------------------------
+
+QUESTION #53
+Type: assumption
+Company: Costco
+
+QUESTION:
+Estimate Variable Lease Assets in 2023
+
+EXPECTED ANSWER:
+$1,405 (in millions)
+--------------------------------------------------------------------------------
+
+QUESTION #54
+Type: assumption
+Company: Costco
+
+QUESTION:
+Estimate Variable Lease Assets in 2024
+
+EXPECTED ANSWER:
+$1,502 (in millions)
+--------------------------------------------------------------------------------
+
+QUESTION #55
+Type: assumption
+Company: Costco
+
+QUESTION:
+Estimate the change in variable lease assets from 2023 to 2024
+
+EXPECTED ANSWER:
+$97 (in millions)
+--------------------------------------------------------------------------------
+
+QUESTION #56
+Type: assumption
+Company: Costco
+
+QUESTION:
+Estimate Variable Lease Liability in 2024
+
+EXPECTED ANSWER:
+$1,466 (in millions)
+--------------------------------------------------------------------------------
+
+QUESTION #59
+Type: assumption
+Company: Costco
+
+QUESTION:
+What is operating current assets in 2024, assuming that 2% of revenue is operating cash?
+
+EXPECTED ANSWER:
+$28,191 (in millions)
+--------------------------------------------------------------------------------
+
+QUESTION #60
+Type: assumption
+Company: Costco
+
+QUESTION:
+What is operating current liability in 2024?
+
+EXPECTED ANSWER:
+$35,035 (in millions)
+--------------------------------------------------------------------------------
+
+QUESTION #61
+Type: assumption
+Company: Costco
+
+QUESTION:
+What is Operating Working Capital for 2024, using 2% of revenue as max potential operating cash?
+
+EXPECTED ANSWER:
+-$6,844 (in millions)
+--------------------------------------------------------------------------------
+
+QUESTION #62
+Type: assumption
+Company: Costco
+
+QUESTION:
+What is 2024 Interest Expense?
+
+EXPECTED ANSWER:
+$280 (in millions)
+--------------------------------------------------------------------------------
+
+QUESTION #63
+Type: assumption
+Company: Costco
+
+QUESTION:
+Calculate the EBIT Interest Coverage Ratio for 2024.
+
+EXPECTED ANSWER:
+33.53x
+--------------------------------------------------------------------------------
+
+QUESTION #64
+Type: assumption
+Company: Costco
+
+QUESTION:
+Calculate the EBITA Interest Coverage Ratio for 2024.
+
+EXPECTED ANSWER:
+42.72x
+--------------------------------------------------------------------------------
+
+QUESTION #65
+Type: assumption
+Company: Costco
+
+QUESTION:
+Determine ROA for 2024.
+
+EXPECTED ANSWER:
+11.31%
+--------------------------------------------------------------------------------
+
+QUESTION #75
+Type: assumption
+Company: Costco
+
+QUESTION:
+Compute UFCF (Unlevered Free Cash Flow) for 2024.
+
+EXPECTED ANSWER:
+$4,664 (in millions)
+--------------------------------------------------------------------------------
+
+QUESTION #80
+Type: assumption
+Company: Costco
+
+QUESTION:
+Determine the EV/Sales ratio for 2024.
+
+EXPECTED ANSWER:
+1.67x
+--------------------------------------------------------------------------------
+

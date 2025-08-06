@@ -1,0 +1,422 @@
+# BASIC QUESTIONS
+# Total: 38 questions
+================================================================================
+
+QUESTION #1
+Type: basic
+Company: Costco
+
+QUESTION:
+What is Gross Profit in the year ending 2024?
+
+EXPECTED ANSWER:
+$32,095 (in millions)
+--------------------------------------------------------------------------------
+
+QUESTION #2
+Type: basic
+Company: Costco
+
+QUESTION:
+What is unadjusted EBITDA for the year ending in 2024?
+
+EXPECTED ANSWER:
+$11,522 (in millions)
+--------------------------------------------------------------------------------
+
+QUESTION #4
+Type: basic
+Company: Costco
+
+QUESTION:
+What is unadjusted EBIT for the year ending in 2024?
+
+EXPECTED ANSWER:
+$9,285 (in millions)
+--------------------------------------------------------------------------------
+
+QUESTION #6
+Type: basic
+Company: Costco
+
+QUESTION:
+Compute the unadjusted EBITDA Margin for 2024. 
+
+EXPECTED ANSWER:
+4.53%
+--------------------------------------------------------------------------------
+
+QUESTION #8
+Type: basic
+Company: Costco
+
+QUESTION:
+What is the Operating Profit Margin in the year ending 2024?
+
+EXPECTED ANSWER:
+3.65%
+--------------------------------------------------------------------------------
+
+QUESTION #9
+Type: basic
+Company: Costco
+
+QUESTION:
+Is Operating Profit Margin greater in 2024 compared to 2023?
+
+EXPECTED ANSWER:
+Yes
+--------------------------------------------------------------------------------
+
+QUESTION #10
+Type: basic
+Company: Costco
+
+QUESTION:
+Calculate Operating Profit for 2024.
+
+EXPECTED ANSWER:
+$9,285 (in millions)
+--------------------------------------------------------------------------------
+
+QUESTION #11
+Type: basic
+Company: Costco
+
+QUESTION:
+What is the P/E ratio for 2024 using Basic EPS?
+
+EXPECTED ANSWER:
+56.66x
+--------------------------------------------------------------------------------
+
+QUESTION #12
+Type: basic
+Company: Costco
+
+QUESTION:
+What is the P/E ratio for 2024 using Diluted EPS?
+
+EXPECTED ANSWER:
+56.86x
+--------------------------------------------------------------------------------
+
+QUESTION #13
+Type: basic
+Company: Costco
+
+QUESTION:
+What is the Diluted EPS of Costco? Manually calculate fully diluted shares outstanding.
+
+EXPECTED ANSWER:
+$16.53
+--------------------------------------------------------------------------------
+
+QUESTION #17
+Type: basic
+Company: Costco
+
+QUESTION:
+Compute the Market Value of Equity for 2024. Manually calculate fully diluted shares outstanding.
+
+EXPECTED ANSWER:
+$418,856 (in millions)
+--------------------------------------------------------------------------------
+
+QUESTION #18
+Type: basic
+Company: Costco
+
+QUESTION:
+Estimate the Cost of Equity using the CAPM model for 2024.
+
+EXPECTED ANSWER:
+9.66%
+--------------------------------------------------------------------------------
+
+QUESTION #23
+Type: basic
+Company: Costco
+
+QUESTION:
+What is the effective tax rate in 2024?
+
+EXPECTED ANSWER:
+24.40%
+--------------------------------------------------------------------------------
+
+QUESTION #24
+Type: basic
+Company: Costco
+
+QUESTION:
+What is the marginal tax rate in 2024?
+
+EXPECTED ANSWER:
+24.00%
+--------------------------------------------------------------------------------
+
+QUESTION #28
+Type: basic
+Company: Costco
+
+QUESTION:
+Calculate Operating Deferred Tax Asset, net of deferred tax liabilities in 2024
+
+EXPECTED ANSWER:
+-$535 (in millions)
+--------------------------------------------------------------------------------
+
+QUESTION #29
+Type: basic
+Company: Costco
+
+QUESTION:
+Calculate Operating Deferred Tax Asset, net of deferred tax liabilities in 2023
+
+EXPECTED ANSWER:
+-$574 (in millions)
+--------------------------------------------------------------------------------
+
+QUESTION #31
+Type: basic
+Company: Costco
+
+QUESTION:
+Determine the Fully Diluted Shares Outstanding in 2024.
+
+EXPECTED ANSWER:
+445,592,000
+--------------------------------------------------------------------------------
+
+QUESTION #34
+Type: basic
+Company: Costco
+
+QUESTION:
+How much cash and cash equivalents did Costco have at year end 2024?
+
+EXPECTED ANSWER:
+$11,144 (in millions)
+--------------------------------------------------------------------------------
+
+QUESTION #36
+Type: basic
+Company: Costco
+
+QUESTION:
+What is the Book Value of Equity in 2024?
+
+EXPECTED ANSWER:
+$23,622 (in millions)
+--------------------------------------------------------------------------------
+
+QUESTION #57
+Type: basic
+Company: Costco
+
+QUESTION:
+What is operating cash for 2024? If there is no mention, assume it is the minimum of 2% of revenue and cash & cash equivalents.
+
+EXPECTED ANSWER:
+$5,089 (in millions)
+--------------------------------------------------------------------------------
+
+QUESTION #58
+Type: basic
+Company: Costco
+
+QUESTION:
+What is excess cash in 2024, given that operating cash is calculated as the minimum between taking 2% of revenue and cash.
+
+EXPECTED ANSWER:
+$6,055 (in millions)
+--------------------------------------------------------------------------------
+
+QUESTION #66
+Type: basic
+Company: Costco
+
+QUESTION:
+Calculate ROE for 2024.
+
+EXPECTED ANSWER:
+30.27%
+--------------------------------------------------------------------------------
+
+QUESTION #67
+Type: basic
+Company: Costco
+
+QUESTION:
+What is the Customer (Logo) Retention Rate in 2024?
+
+EXPECTED ANSWER:
+90.50%
+--------------------------------------------------------------------------------
+
+QUESTION #68
+Type: basic
+Company: Costco
+
+QUESTION:
+Calculate ARPU (Average Revenue Per User) for 2024.
+
+EXPECTED ANSWER:
+$3,457.24
+--------------------------------------------------------------------------------
+
+QUESTION #69
+Type: basic
+Company: Costco
+
+QUESTION:
+What is revenue per store cut by geography in 2024?
+
+EXPECTED ANSWER:
+US: $299.91 per store; Canada: $322.91 per store; International: $210.93 per store
+--------------------------------------------------------------------------------
+
+QUESTION #70
+Type: basic
+Company: Costco
+
+QUESTION:
+What was Costco Sames Store Sales growth?
+
+EXPECTED ANSWER:
+5%
+--------------------------------------------------------------------------------
+
+QUESTION #71
+Type: basic
+Company: Costco
+
+QUESTION:
+How many members churned in 2024?
+
+EXPECTED ANSWER:
+6,745
+--------------------------------------------------------------------------------
+
+QUESTION #72
+Type: basic
+Company: Costco
+
+QUESTION:
+How many new members joined in 2024?
+
+EXPECTED ANSWER:
+11,945
+--------------------------------------------------------------------------------
+
+QUESTION #73
+Type: basic
+Company: Costco
+
+QUESTION:
+What's the operating working capital in 2023, using 2% of revenue as max potential operating cash?
+
+EXPECTED ANSWER:
+-$6,662 (in millions)
+--------------------------------------------------------------------------------
+
+QUESTION #74
+Type: basic
+Company: Costco
+
+QUESTION:
+What is the change in operating working capital from 2023 to 2024, using 2% of revenue as max potential operating cash?
+
+EXPECTED ANSWER:
+-$182 (in millions)
+--------------------------------------------------------------------------------
+
+QUESTION #76
+Type: basic
+Company: Costco
+
+QUESTION:
+Calculate levered free cash flow for 2024.
+
+EXPECTED ANSWER:
+$5,921 (in millions)
+--------------------------------------------------------------------------------
+
+QUESTION #77
+Type: basic
+Company: Costco
+
+QUESTION:
+Calculate Accounts Receivables Days for 2024.
+
+EXPECTED ANSWER:
+3.59x
+--------------------------------------------------------------------------------
+
+QUESTION #78
+Type: basic
+Company: Costco
+
+QUESTION:
+Calculate Accounts Payables Days for 2024.
+
+EXPECTED ANSWER:
+30.29x
+--------------------------------------------------------------------------------
+
+QUESTION #79
+Type: basic
+Company: Costco
+
+QUESTION:
+Calculate Inventory Turnover for 2024.
+
+EXPECTED ANSWER:
+12.6x
+--------------------------------------------------------------------------------
+
+QUESTION #81
+Type: basic
+Company: Costco
+
+QUESTION:
+Calculate Asset Turnover for 2024.
+
+EXPECTED ANSWER:
+3.67x
+--------------------------------------------------------------------------------
+
+QUESTION #82
+Type: basic
+Company: Costco
+
+QUESTION:
+What was Sales per store in 2024?
+
+EXPECTED ANSWER:
+$285.90
+--------------------------------------------------------------------------------
+
+QUESTION #83
+Type: basic
+Company: Costco
+
+QUESTION:
+What was Sales per sq ft in 2024?
+
+EXPECTED ANSWER:
+$1,943.87
+--------------------------------------------------------------------------------
+
+QUESTION #84
+Type: basic
+Company: Costco
+
+QUESTION:
+What was Sales per sq ft cut by geography in 2024?
+
+EXPECTED ANSWER:
+US: $2,021.33; Canada: $2,249.94 International: $1,458.27
+--------------------------------------------------------------------------------
+

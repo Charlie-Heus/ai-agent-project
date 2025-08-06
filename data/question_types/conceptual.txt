@@ -1,0 +1,709 @@
+# CONCEPTUAL QUESTIONS
+# Total: 64 questions
+================================================================================
+
+QUESTION #85
+Type: conceptual
+Company: N/A
+
+QUESTION:
+Company X trades at $15 per share and has 80 shares outstanding, with $80 in net income. Company Y trades at $30 per share, has 15 shares outstanding, and earns $20 in net income. Company X acquires Company Y at no premium, paying 60% in new stock and 40% in cash. After the transaction, what is the percentage change in Company X's EPS?
+
+EXPECTED ANSWER:
+2%
+--------------------------------------------------------------------------------
+
+QUESTION #86
+Type: conceptual
+Company: N/A
+
+QUESTION:
+You deposit $80 right now. After three years, your annual IRR is 10%. How much will your deposit be worth at the end of those three years?
+
+EXPECTED ANSWER:
+$106.48
+--------------------------------------------------------------------------------
+
+QUESTION #87
+Type: conceptual
+Company: N/A
+
+QUESTION:
+Let's say you're going to receive $75 in 7 years, with a discount rate of 9%. What is its value today?
+
+EXPECTED ANSWER:
+$41.06
+--------------------------------------------------------------------------------
+
+QUESTION #88
+Type: conceptual
+Company: N/A
+
+QUESTION:
+You have two potential investments, Company X and Company Y. Both companies are available at the same purchase price and both project a levered IRR of 25%. However, investing in Company X requires 4 turns of leverage while investing in Company Y requires 7 turns. Which company would you invest in and why?
+
+EXPECTED ANSWER:
+Company X
+--------------------------------------------------------------------------------
+
+QUESTION #89
+Type: conceptual
+Company: N/A
+
+QUESTION:
+You have two potential investments, Company X and Company Y. Both companies are available at the same purchase price and both project a levered IRR of 25%. However, investing in Company X requires 4 turns of leverage while investing in Company Y requires 7 turns. Which investment has a higher unlevered IRR?
+
+EXPECTED ANSWER:
+Company X
+--------------------------------------------------------------------------------
+
+QUESTION #90
+Type: conceptual
+Company: N/A
+
+QUESTION:
+Suppose Company X trades at $10 per share, with a P/E ratio of 2x, and it has 300 shares outstanding. Company Y trades at $8 per share, with a P/E ratio of 2x, and has 120 shares outstanding. Company X plans to buy Company Y for $9 per share, funding half of the purchase with cash (raised through debt at a 6% cost of debt that matures over four years) and half with newly issued stock. The deal also incurs $15 in financing costs and $20 in transaction fees. Is this acquisition accretive or dilutive to Company X?
+
+EXPECTED ANSWER:
+Accretive
+--------------------------------------------------------------------------------
+
+QUESTION #91
+Type: conceptual
+Company: N/A
+
+QUESTION:
+Suppose a company issues 100 million in debt and uses the proceeds to repurchase its own shares. What is the effect on the company's Enterprise Value (increase, decrease, or no change)?
+
+EXPECTED ANSWER:
+No change
+--------------------------------------------------------------------------------
+
+QUESTION #92
+Type: conceptual
+Company: N/A
+
+QUESTION:
+Suppose a company raises 25 million of debt and uses it to buy back shares from its shareholders. How does this transaction affect the firm's equity value (increase, decrease, or no change)?
+
+EXPECTED ANSWER:
+Decrease
+--------------------------------------------------------------------------------
+
+QUESTION #93
+Type: conceptual
+Company: N/A
+
+QUESTION:
+Consider a firm with a market cap of 800 million and net income of 80 million that takes on 100 million in debt to buy back shares. How does this transaction influence its P/E multiple (increase, decrease or no change)?
+
+EXPECTED ANSWER:
+Decrease
+--------------------------------------------------------------------------------
+
+QUESTION #94
+Type: conceptual
+Company: N/A
+
+QUESTION:
+A firm generating 50 of EBITDA at a 20% EBITDA margin is bought at a 10x multiple, using 40% debt to finance the deal. If the company has 100 of cash at exit and is sold at a 10x multiple after five years, what annual revenue growth rate is needed to receive a 25% IRR?
+
+EXPECTED ANSWER:
+15%
+--------------------------------------------------------------------------------
+
+QUESTION #95
+Type: conceptual
+Company: N/A
+
+QUESTION:
+If a customer buys a $75 Starbucks gift card, what is the immediate impact on Starbucks' cash flow before the card is used (cash inflow, cash outflow, or no change)?
+
+EXPECTED ANSWER:
+Cash inflow of $75
+--------------------------------------------------------------------------------
+
+QUESTION #96
+Type: conceptual
+Company: N/A
+
+QUESTION:
+Suppose you buy a $75 Starbucks gift card, then spend the entire balance on drinks. What happens to Starbucks's cash flow at the moment you use that $75 (cash inflow, cash outflow, or no change)?
+
+EXPECTED ANSWER:
+No change
+--------------------------------------------------------------------------------
+
+QUESTION #97
+Type: conceptual
+Company: N/A
+
+QUESTION:
+Company X trades at $40 per share, owns 100 shares in total, and earns $200 of net income. Company Y trades at $30 per share, has 50 shares outstanding, and generates $50 in net income. X acquires Y entirely by issuing new shares. Is this deal accretive or dilutive to Company X?
+
+EXPECTED ANSWER:
+Dilutive
+--------------------------------------------------------------------------------
+
+QUESTION #98
+Type: conceptual
+Company: N/A
+
+QUESTION:
+A firm has a P/E of 12x, a borrowing rate of 5%, and a D/E of 4x. Based on these figures, is the cost of equity or debt cheaper?
+
+EXPECTED ANSWER:
+Cost of Debt
+--------------------------------------------------------------------------------
+
+QUESTION #99
+Type: conceptual
+Company: N/A
+
+QUESTION:
+A corporation's WACC is 9%, its after-tax cost of debt is 5%, and its debt-to-equity ratio is 60%. What is its cost of equity?
+
+EXPECTED ANSWER:
+10.56%
+--------------------------------------------------------------------------------
+
+QUESTION #100
+Type: conceptual
+Company: N/A
+
+QUESTION:
+A firm has 200 million of equity, 100 million of debt, and 70 million of cash. The company raises a 30 million term loan to finance a 60 million acquisition. How is its enterprise value affected?
+
+EXPECTED ANSWER:
+60M increase
+--------------------------------------------------------------------------------
+
+QUESTION #101
+Type: conceptual
+Company: N/A
+
+QUESTION:
+A firm has 200 million of equity, 100 million of debt, and 70 million of cash. The company raises a 30 million term loan to finance a 60 million acquisition. How is its equity value affected?
+
+EXPECTED ANSWER:
+30M increase
+--------------------------------------------------------------------------------
+
+QUESTION #102
+Type: conceptual
+Company: N/A
+
+QUESTION:
+Imagine a business raises 60 million in new equity and immediately pays that amount as a dividend. What is the impact on its enterprise value?
+
+EXPECTED ANSWER:
+stays the same
+--------------------------------------------------------------------------------
+
+QUESTION #103
+Type: conceptual
+Company: N/A
+
+QUESTION:
+A firm obtains raises 40 million in equity and immediately distributes it to its shareholders as a one-time dividend. How does this affect the firm's equity value?
+
+EXPECTED ANSWER:
+unchanged
+--------------------------------------------------------------------------------
+
+QUESTION #104
+Type: conceptual
+Company: N/A
+
+QUESTION:
+A private equity group acquires a company with 200M of EBITDA at a 4x multiple, financing 50% with debt. In the fifth year, EBITDA has grown to 300M, and the firm exits at a 5x multiple. Across this period, 400M of debt was paid down, with no remaining surplus cash. What are the MOIC and the IRR of this investment?
+
+EXPECTED ANSWER:
+3x MOIC, 25% IRR
+--------------------------------------------------------------------------------
+
+QUESTION #105
+Type: conceptual
+Company: N/A
+
+QUESTION:
+Suppose an enterprise value is 200 million, with 60 million in senior debt, 30 million in junior debt, and 10 million in cash. How would you determine the company's equity value?
+
+EXPECTED ANSWER:
+$120M
+--------------------------------------------------------------------------------
+
+QUESTION #106
+Type: conceptual
+Company: N/A
+
+QUESTION:
+If a firm has an enterprise value of 2500, cash of 200, debt of 600, a 15x P/E ratio, and 50 shares outstanding, what is the firm's EPS?
+
+EXPECTED ANSWER:
+$2.80.
+--------------------------------------------------------------------------------
+
+QUESTION #107
+Type: conceptual
+Company: N/A
+
+QUESTION:
+Suppose a firm is worth 2.5 million. If its borrowing rate increases, how does the firm's enterprise value (increase, decrease, or no change)?
+
+EXPECTED ANSWER:
+no change
+--------------------------------------------------------------------------------
+
+QUESTION #108
+Type: conceptual
+Company: N/A
+
+QUESTION:
+Suppose a business trades at 3x revenue and 6x EBITDA. What would its EBITDA margin be?
+
+EXPECTED ANSWER:
+50%
+--------------------------------------------------------------------------------
+
+QUESTION #109
+Type: conceptual
+Company: N/A
+
+QUESTION:
+Suppose Firm X has a share price of $60, a P/E of 12x, and 500 shares outstanding, while Firm Y trades at $30 per share, a P/E of 8x, and has 200 shares outstanding. If Firm X purchases Firm Y entirely with stock, will the deal increase or decrease Firm X's EPS?
+
+EXPECTED ANSWER:
+Increase
+--------------------------------------------------------------------------------
+
+QUESTION #110
+Type: conceptual
+Company: N/A
+
+QUESTION:
+You operate a phone case business, charging $30 per case, with $14 of manufacturing costs per case, and SG&A at 12% of sales. If you sell 25 cases, what is your EBITDA?
+
+EXPECTED ANSWER:
+$310
+--------------------------------------------------------------------------------
+
+QUESTION #111
+Type: conceptual
+Company: N/A
+
+QUESTION:
+A firm records 120 million in total revenue and 90 million in operating costs, yielding 30 million in operating profit. Of these costs, 50 percent are fixed and 50 percent are variable. If volume rises by 15 percent, by how much does operating profit change?
+
+EXPECTED ANSWER:
+$11.5 million increase
+--------------------------------------------------------------------------------
+
+QUESTION #112
+Type: conceptual
+Company: N/A
+
+QUESTION:
+Suppose a company begins with revenue of 70 and EBITDA of 14. Over five years, it consistently maintains the same EBITDA margin while revenue rises by 10 each year. The business is bought at a 350 enterprise value, 60% funded through debt, and sold at a 450 enterprise value. Every year, depreciation and amortization is 3, capital expenditure is 3, the tax rate is 50 percent, there is no interest expense, and net working capital does not change. What are the MOIC and IRR?
+
+EXPECTED ANSWER:
+2x MOIC, 15% IRR
+--------------------------------------------------------------------------------
+
+QUESTION #113
+Type: conceptual
+Company: N/A
+
+QUESTION:
+You run a coffee mug shop charging $25 per mug. Your production cost per mug is $12, and you also pay a 15% overhead on the selling price. You plan to double your total revenue by increasing prices not volume. What will your EBITDA be after the price increase?
+
+EXPECTED ANSWER:
+$457.50
+--------------------------------------------------------------------------------
+
+QUESTION #114
+Type: conceptual
+Company: N/A
+
+QUESTION:
+Suppose you run a business selling backpacks at $25 each and sell 20 backpacks. Producing each backpack costs $12, and your SG&A expenses are 12% of revenue. You want to double your total revenue solely by increasing volume, not by raising prices. What is your EBITDA after this increase?
+
+EXPECTED ANSWER:
+$400
+--------------------------------------------------------------------------------
+
+QUESTION #115
+Type: conceptual
+Company: N/A
+
+QUESTION:
+A firm has two tranches of debt, each at 150M, for a total of 300M, while its enterprise value is 250M. What does each tranche trade at?
+
+EXPECTED ANSWER:
+83% of par
+--------------------------------------------------------------------------------
+
+QUESTION #116
+Type: conceptual
+Company: N/A
+
+QUESTION:
+Company X is currently valued at 5x EV/EBITDA and 5x P/E, while Company Y trades at 6x EV/EBITDA and 4x P/E. If X acquires Y, would the deal increase or decrease X's earnings per share?
+
+EXPECTED ANSWER:
+Increase
+--------------------------------------------------------------------------------
+
+QUESTION #117
+Type: conceptual
+Company: N/A
+
+QUESTION:
+You acquire a firm for 80 million at a 10x EBITDA multiple, financed with 60% debt at a 5% interest rate. You hold the company for 5 years and exit at a 9x multiple, with zero EBITDA growth and 2 million of annual capital expenditure. For the 5-year hold, what is the MOIC, IRR, and the first-year LFCF yield?
+
+EXPECTED ANSWER:
+1.3x MOIC, 6% IRR, 11.25% LFCF yield
+--------------------------------------------------------------------------------
+
+QUESTION #118
+Type: conceptual
+Company: N/A
+
+QUESTION:
+You purchase a company for 150M at a 15x EBITDA multiple, hold it for 5 years without EBITDA growth, then exit at a 15x multiple. The investment is bought at 50% LTV with 4% cost of debt. You also spend 2M on capital expenditures annually. What are the MOIC and IRR of the deal? Assume add debt is paid down at exit and you only have access to a basic calculator.
+
+EXPECTED ANSWER:
+MOIC: 1.33x, IRR: 6%
+--------------------------------------------------------------------------------
+
+QUESTION #119
+Type: conceptual
+Company: N/A
+
+QUESTION:
+A soda company sells each beverage for $8 while spending $3 to produce each drink. They typically sell 900 drinks per month. If they switch to a membership plan offering 4 drinks a month, what should the monthly fee be to hold the same profit?
+
+EXPECTED ANSWER:
+$17
+--------------------------------------------------------------------------------
+
+QUESTION #120
+Type: conceptual
+Company: N/A
+
+QUESTION:
+A private equity group acquires a gadget-maker via LBO. The company sells 12 gadgets in its first year. How many gadgets must it sell in year 5 to reach a 25% IRR? The company starts with EBITDA of 60, is bought at a 9x multiple, and is exited at a 10x multiple after 5 years. The deal uses 25% debt financing. Annual non-gadget revenue is 120, the initial EBITDA margin is 25%, gadget prices rise by $4 in year 5, the final EBITDA margin is 25%, and the firm finishes the period with 350 in cash. Assume a 3x MOIC corresponds to a 25% IRR.
+
+EXPECTED ANSWER:
+20
+--------------------------------------------------------------------------------
+
+QUESTION #121
+Type: conceptual
+Company: N/A
+
+QUESTION:
+A financial sponsor acquires a business with EBITDA of $24 and an 10x purchase multiple, financed with a 2:1 debt-to-equity structure. Five years later, the sponsor exits when EBITDA is $40 at the same 10x multiple. Over the holding period, $70 of debt is fully paid down through free cash flow. What are the MOIC and IRR on the sponsor's equity?
+
+EXPECTED ANSWER:
+3.875x MOICC, 31% IRR
+--------------------------------------------------------------------------------
+
+QUESTION #122
+Type: conceptual
+Company: N/A
+
+QUESTION:
+A business has a P/E ratio of 12 and reports $4 in EPS, making its stock trade at $48. If the tax rate is lowered from 40% to 28%, what is the updated stock price assuming the same P/E ratio?
+
+EXPECTED ANSWER:
+$57.60
+--------------------------------------------------------------------------------
+
+QUESTION #123
+Type: conceptual
+Company: N/A
+
+QUESTION:
+Suppose a firm pays out a $15 dividend. How does this impact the firm's enterprise value (increase, decrease, or no change)?
+
+EXPECTED ANSWER:
+No change
+--------------------------------------------------------------------------------
+
+QUESTION #124
+Type: conceptual
+Company: N/A
+
+QUESTION:
+If a firm disburses a $12 dividend to its shareholders, what happens to its Equity Value (increase, decrease, or no change)?
+
+EXPECTED ANSWER:
+Decrease
+--------------------------------------------------------------------------------
+
+QUESTION #125
+Type: conceptual
+Company: N/A
+
+QUESTION:
+Suppose you hold a $150 million senior note on a firm's debt. There is a 40% chance the firm defaults with no recovery, and a 60% chance that its enterprise value reaches $250 million (fully covering your note). What is the fair market price of this debt?
+
+EXPECTED ANSWER:
+60c
+--------------------------------------------------------------------------------
+
+QUESTION #126
+Type: conceptual
+Company: N/A
+
+QUESTION:
+A firm trading at a 20x P/E acquires a target at 10x P/E using 50% new shares and 50% debt. What interest rate on the borrowed funds would keep the deal neutral to earnings per share?
+
+EXPECTED ANSWER:
+15%
+--------------------------------------------------------------------------------
+
+QUESTION #127
+Type: conceptual
+Company: N/A
+
+QUESTION:
+If a business is trading at 15x its earnings and acquires a target valued at 7x earnings, does this transaction increase or decrease the acquirer's earnings per share?
+
+EXPECTED ANSWER:
+Unknown unless deal is 100%, where deal would be accretive
+--------------------------------------------------------------------------------
+
+QUESTION #128
+Type: conceptual
+Company: N/A
+
+QUESTION:
+Imagine a firm valued at 600M, with 400M in senior secured notes and an additional 300M in junior secured notes. How would each note class be priced based on this valuation?
+
+EXPECTED ANSWER:
+First lien trades at 100c, second lien trades at 66.7c
+--------------------------------------------------------------------------------
+
+QUESTION #129
+Type: conceptual
+Company: N/A
+
+QUESTION:
+A business earns $200 in sales per period, with a 25% gross margin. Which option boosts profit most: increasing unit sales by 16%, raising prices by 4%, or cutting overhead by $2?
+
+EXPECTED ANSWER:
+Price and volume
+--------------------------------------------------------------------------------
+
+QUESTION #130
+Type: conceptual
+Company: N/A
+
+QUESTION:
+Suppose you have two investment opportunities, both offering a 22% levered IRR. Option X will be financed at 4x leverage, while Option Y will be financed at 7x leverage, and both require the same equity investment. Which investment has  greater financial risk?
+
+EXPECTED ANSWER:
+Option Y
+--------------------------------------------------------------------------------
+
+QUESTION #131
+Type: conceptual
+Company: N/A
+
+QUESTION:
+If Company B funds an acquisition with debt, how could the resulting interest expenses and added income change its net earnings and shareholder returns (return on equity)?
+
+EXPECTED ANSWER:
+Decrease Net Income and increase return on equity
+--------------------------------------------------------------------------------
+
+QUESTION #132
+Type: conceptual
+Company: N/A
+
+QUESTION:
+As a company takes on more debt, what happens to the company's WACC?
+
+EXPECTED ANSWER:
+Decrease WACC
+--------------------------------------------------------------------------------
+
+QUESTION #133
+Type: conceptual
+Company: N/A
+
+QUESTION:
+Two similar firms have identical operations but different funding methods: Firm A raises 60% through equity and 40% via debt, whereas Firm B relies solely on equity. How does Firm A's debt financing affect its cash flow statement versus Firm B?
+
+EXPECTED ANSWER:
+CFO decreased, CFI unchanged, CFF potentially decreased
+--------------------------------------------------------------------------------
+
+QUESTION #134
+Type: conceptual
+Company: N/A
+
+QUESTION:
+If we increase annual depreciation by 25 dollars, what effect does this have on the discounted cash flow analysis?
+
+EXPECTED ANSWER:
+Increase valuation
+--------------------------------------------------------------------------------
+
+QUESTION #135
+Type: conceptual
+Company: N/A
+
+QUESTION:
+A manufacturing company has an EV/EBITDA multiple of 12x and a P/E ratio of 12x. From this information, how much net debt does this company have? 
+
+EXPECTED ANSWER:
+EBITDA * 6
+--------------------------------------------------------------------------------
+
+QUESTION #136
+Type: conceptual
+Company: N/A
+
+QUESTION:
+Imagine two comparable firms that earn identical operating income. Firm X is financed with 60% equity and 40% debt, while Firm Y is completely equity-funded. How does Firm X's interest expense on debt affect its net income relative to Firm Y's net income?
+
+EXPECTED ANSWER:
+Firm X has less net income relative to Firm Y
+--------------------------------------------------------------------------------
+
+QUESTION #137
+Type: conceptual
+Company: N/A
+
+QUESTION:
+A firm acquires a piece of machinery for 250 with cash. Demonstrate how this transaction affects the primary financial statements.
+
+EXPECTED ANSWER:
+On the income statement, nothing changes. On the cash flow statement, there is an outflow of 250 under cash flow for investing for purchasing PP&E. On the balance sheet, cash goes down by 250 and PP&E goes up by 250, which balances.
+--------------------------------------------------------------------------------
+
+QUESTION #138
+Type: conceptual
+Company: N/A
+
+QUESTION:
+How does a 100-dollar asset write-down at a 20% tax rate affect each financial statement?
+
+EXPECTED ANSWER:
+On the income statement, pre-tax income goes down by 100, and net income is down by 80. On the cash flow statement, net income is down by 80, but you add back 100 because it was a non-cash expense, so cash is up by 20. On the balance sheet, cash is up by 20, some sort of PP&E or asset is down by 100, which means assets are down by 80. Since net income, which is in shareholders equity is down by 80, the balance sheet balances.
+--------------------------------------------------------------------------------
+
+QUESTION #139
+Type: conceptual
+Company: N/A
+
+QUESTION:
+Imagine a company disposes of an asset booked at 60 and receives 120 in proceeds. How would this transaction affect the three financial statements, assuming a 20% tax rate?
+
+EXPECTED ANSWER:
+On the income statement, there is a gain of 60, increasing net income by 60 * (1-0.2) = $48. On the cash flow statement, net income is up by 48 in the operating activities. Gain on sales is a non-cash expense, reducing cash flow from operations by $60, leaving cash flow from operations down by $12. In the investing activities, proceeds from asset sales increase by $120, leaving cash overall up $120 -$12 = $108. 
+On the balance sheet, cash is up by $108, and PP&E is down by $60, leaving assets up $48. Shareholders equity is increased by $48 as well due to the increase in net income.
+--------------------------------------------------------------------------------
+
+QUESTION #140
+Type: conceptual
+Company: N/A
+
+QUESTION:
+A company spends 15 dollars in cash to purchase more inventory. Assuming a 35% income tax rate, how would this transaction influence the firm's financial statements?
+
+EXPECTED ANSWER:
+On the income statement, nothing happens. On the cash flow statement, cash is down by 15 in CFO for purchasing inventory. On the balance sheet, cash is down by 15 and inventory is up by 15, balancing the balance sheet.
+--------------------------------------------------------------------------------
+
+QUESTION #141
+Type: conceptual
+Company: N/A
+
+QUESTION:
+A company records a $200 sale, receiving $100 in cash and $100 on credit. With a 35% tax rate, how do the income statement, balance sheet, and cash flow statement each change?
+
+EXPECTED ANSWER:
+On the income statement, pre-tax income is up by 200. With a tax rate of 35% net income is up by 130. On the cash flow statement, net income is up by 130, but 100 needs to be subtracted since it was non-cash revenue (increase in accounts receivable), so CFO is up by 30. There are no changes in CFF or CFI, so cash is up by 30. On the balance sheet cash is up by 30, accounts receivable is up by 100 and shareholders equity is up by 130 from net income or retained earnings.
+--------------------------------------------------------------------------------
+
+QUESTION #142
+Type: conceptual
+Company: N/A
+
+QUESTION:
+Walk me through how the 3 statements are impacted by a merger.
+
+EXPECTED ANSWER:
+For the income statement, the individual line items are combined. New line items are added for revenue or cost synergies as well as interest expense if debt was used to fund the acquisition or a change in interest expense from refinancing. Deal costs are also included. In the cash flow statement, you would also combine the line items, making to potentially factor new depreciation and amortization from changing values of intangible or tangible assets from the acquisition. If there are any principal payments related to the new debt, make sure to include that. Finally, combine balance sheet line items and make sure to add goodwill as an asset if the acquirer paid a premium to market value.
+--------------------------------------------------------------------------------
+
+QUESTION #143
+Type: conceptual
+Company: N/A
+
+QUESTION:
+How are the three statement are affected when a company buys $300 of inventory by issuing new debt?
+
+EXPECTED ANSWER:
+There is no immediate impact on the income statement since revenue has yet to be recognized at this point. On the Cash flow statement, cash flow from operations is down by $300 for the increase in inventory. The issuance of debt reduces cash flow from financing by $300 leaving net cash unchanged. On the balance sheet, inventory increases assets by $300 and debt increases the liabilities by $300.
+--------------------------------------------------------------------------------
+
+QUESTION #144
+Type: conceptual
+Company: N/A
+
+QUESTION:
+Describe the outcome of a $100 increase in depreciation on the three financial statements, assuming an 12% tax rate.
+
+EXPECTED ANSWER:
+On the income statement, pre-tax income is down by 100, net income is down by 88 (100 * (1 - 0.12)). On the cash flow statement, net income is down by 88 and 100 is added back since depreciation is a non-cash expense. Cash is up by 12. On the balance sheet, cash is up by 12, PP&E is down by 100, so assets are down by 88. This matches with liabilities + equities, as retained earnings is down by 88, which is a part of shareholders equity,.
+--------------------------------------------------------------------------------
+
+QUESTION #145
+Type: conceptual
+Company: N/A
+
+QUESTION:
+The firm currently has 200 of PIK debt at an 10% interest rate and faces a 35% tax rate, how will this flow through the balance sheet, income statement, and cash flow statement?
+
+EXPECTED ANSWER:
+On the income statement, pre-tax income is down by 20 (200 * 10%). With a 35% tax rate, net income is down by 20 * (0.65) = 13. On the cash flow statement, net income is down by 13. However, since PIK is a non-cash expense it is added back, so cash is up by 7, which is -13 + 20. On the balance sheet, cash is up by 7. On the liabilities side, debt is up by 20, from the interest accruing to the principal. Retained earnings is down by 13, so liabilities + equity is up by 7 (20 - 13), balancing with assets.
+--------------------------------------------------------------------------------
+
+QUESTION #146
+Type: conceptual
+Company: N/A
+
+QUESTION:
+A business sells of an asset with a carrying value of 50 for 75. Assume a 25% tax rate. How does this affect the financial statements?
+
+EXPECTED ANSWER:
+On the income statement, a gain on sale increases net income by $25 * (1-0.25) = $18.75. On the cash flow statement, net income in CFO is increased by $18.75, however we subtract the non-cash $25 gain on sale, leaving CFO down by $6.25. Sale of asset increases cash flow from investing by $75, resulting in a net cash increase of $68.75. On the balance sheet, cash increases by $68.75 and PPE is decreased by $50, leaving assets up by $18.75. Shareholders equity is increased by $18.75 from the increase in net income.
+--------------------------------------------------------------------------------
+
+QUESTION #147
+Type: conceptual
+Company: N/A
+
+QUESTION:
+A firm borrowed $300 in order to buy goods. It later sold those goods for $600, incurred $150 in operating expenses, paid 6% interest on the loan, and repaid 12% of the original principal. Assume a tax rate of 10% How are the income statement, balance sheet, and cash flow statement affected after this transaction?
+
+EXPECTED ANSWER:
+In the income statement, revenue is up 600, subtract 300 for COGS, 150 for Opex, so EBIT is 600 -300 -150 = 150. Interest expense is 300 * .12 = 36. Pre-tax income is 150 - 36 = 114. Post-tax income is 114 * 0.9 or 102.6. On the cash flow statement net income is up 102.6 and you add back 300 since inventory went down (and was a non-cash expense), 12% of principal is paid back or .12 * 300 = 36, so cash is up by 102.6 + 300 - 36 = 366.6. On the balance sheet, cash is up by 366.6, inventory is down by 300. On the liabilities side, debt is down by 36 and retained earnings is up by 102.6. 366.6 - 300 = 66.6. Liabilities +Equity = -36 + 102.6 = 66.6. Balance sheet balances.
+--------------------------------------------------------------------------------
+
+QUESTION #148
+Type: conceptual
+Company: N/A
+
+QUESTION:
+Company X buys back stock with debt. How does that impact the P/E ratio of the company?
+
+EXPECTED ANSWER:
+P/E ratio typically decreases
+--------------------------------------------------------------------------------
+

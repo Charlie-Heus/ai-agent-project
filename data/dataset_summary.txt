@@ -1,0 +1,901 @@
+Total number of questions: 148
+
+Number of questions of each question type:
+  basic: 38
+  assumption: 46
+  conceptual: 64
+
+Columns: ['context', 'question', 'chain_of_thought', 'answer', 'file_link', 'file_name', 'company', 'question_type']
+
+All questions in the dataset:
+================================================================================
+
+1. Question: What is Gross Profit in the year ending 2024?
+   Answer: $32,095 (in millions)
+   Company: Costco
+   Question Type: basic
+--------------------------------------------------------------------------------
+
+2. Question: What is unadjusted EBITDA for the year ending in 2024?
+   Answer: $11,522 (in millions)
+   Company: Costco
+   Question Type: basic
+--------------------------------------------------------------------------------
+
+3. Question: What is adjusted EBITDA for the year ending in 2024?
+   Answer: $11,969 (in millions)
+   Company: Costco
+   Question Type: assumption
+--------------------------------------------------------------------------------
+
+4. Question: What is unadjusted EBIT for the year ending in 2024?
+   Answer: $9,285 (in millions)
+   Company: Costco
+   Question Type: basic
+--------------------------------------------------------------------------------
+
+5. Question: What is adjusted EBIT for the year ending in 2024?
+   Answer: $9,396 (in millions)
+   Company: Costco
+   Question Type: assumption
+--------------------------------------------------------------------------------
+
+6. Question: Compute the unadjusted EBITDA Margin for 2024. 
+   Answer: 4.53%
+   Company: Costco
+   Question Type: basic
+--------------------------------------------------------------------------------
+
+7. Question: Compute the adjusted EBITDA Margin for 2024. 
+   Answer: 4.70%
+   Company: Costco
+   Question Type: assumption
+--------------------------------------------------------------------------------
+
+8. Question: What is the Operating Profit Margin in the year ending 2024?
+   Answer: 3.65%
+   Company: Costco
+   Question Type: basic
+--------------------------------------------------------------------------------
+
+9. Question: Is Operating Profit Margin greater in 2024 compared to 2023?
+   Answer: Yes
+   Company: Costco
+   Question Type: basic
+--------------------------------------------------------------------------------
+
+10. Question: Calculate Operating Profit for 2024.
+   Answer: $9,285 (in millions)
+   Company: Costco
+   Question Type: basic
+--------------------------------------------------------------------------------
+
+11. Question: What is the P/E ratio for 2024 using Basic EPS?
+   Answer: 56.66x
+   Company: Costco
+   Question Type: basic
+--------------------------------------------------------------------------------
+
+12. Question: What is the P/E ratio for 2024 using Diluted EPS?
+   Answer: 56.86x
+   Company: Costco
+   Question Type: basic
+--------------------------------------------------------------------------------
+
+13. Question: What is the Diluted EPS of Costco? Manually calculate fully diluted shares outstanding.
+   Answer: $16.53
+   Company: Costco
+   Question Type: basic
+--------------------------------------------------------------------------------
+
+14. Question: Determine the EV/EBITDA ratio for 2024. Make sure to adjust for EBITDA and use the market value of equity to estimate enterprise value. Make sure to hand calculated fully diluted shares outstanding. Assume the only non-operating asset is excess cash.
+   Answer: 35.44x
+   Company: Costco
+   Question Type: assumption
+--------------------------------------------------------------------------------
+
+15. Question: Calculate Enterprise Value for 2024 with the market value of equity. Make sure to hand calculated fully diluted shares outstanding. Assume the only non-operating asset is excess cash.
+   Answer: $424,216 (in millions)
+   Company: Costco
+   Question Type: assumption
+--------------------------------------------------------------------------------
+
+16. Question: What is the Equity Value in 2024? Assume Enterprise Value is 420 Billion and assume the only non-operating asset not factored into Enterprise Value is excess cash.
+   Answer: $414,640 (in millions)
+   Company: Costco
+   Question Type: assumption
+--------------------------------------------------------------------------------
+
+17. Question: Compute the Market Value of Equity for 2024. Manually calculate fully diluted shares outstanding.
+   Answer: $418,856 (in millions)
+   Company: Costco
+   Question Type: basic
+--------------------------------------------------------------------------------
+
+18. Question: Estimate the Cost of Equity using the CAPM model for 2024.
+   Answer: 9.66%
+   Company: Costco
+   Question Type: basic
+--------------------------------------------------------------------------------
+
+19. Question: Calculate WACC for 2024.
+   Answer: 9.56%
+   Company: Costco
+   Question Type: assumption
+--------------------------------------------------------------------------------
+
+20. Question: What is market debt to equity ratio?
+   Answer: 2.73%
+   Company: Costco
+   Question Type: assumption
+--------------------------------------------------------------------------------
+
+21. Question: What is the Debt to Value in 2024?
+   Answer: 2.65%
+   Company: Costco
+   Question Type: assumption
+--------------------------------------------------------------------------------
+
+22. Question: What is the Equity to Value in 2024?
+   Answer: 97.35%
+   Company: Costco
+   Question Type: assumption
+--------------------------------------------------------------------------------
+
+23. Question: What is the effective tax rate in 2024?
+   Answer: 24.40%
+   Company: Costco
+   Question Type: basic
+--------------------------------------------------------------------------------
+
+24. Question: What is the marginal tax rate in 2024?
+   Answer: 24.00%
+   Company: Costco
+   Question Type: basic
+--------------------------------------------------------------------------------
+
+25. Question: What are the statutory / marginal taxes on adjusted EBIT?
+   Answer: $2,255 (in millions)
+   Company: Costco
+   Question Type: assumption
+--------------------------------------------------------------------------------
+
+26. Question: What is the operating tax in 2024?
+   Answer: $2,244 (in millions)
+   Company: Costco
+   Question Type: assumption
+--------------------------------------------------------------------------------
+
+27. Question: What is the operating cash tax in 2024?
+   Answer: $2,283 (in millions)
+   Company: Costco
+   Question Type: assumption
+--------------------------------------------------------------------------------
+
+28. Question: Calculate Operating Deferred Tax Asset, net of deferred tax liabilities in 2024
+   Answer: -$535 (in millions)
+   Company: Costco
+   Question Type: basic
+--------------------------------------------------------------------------------
+
+29. Question: Calculate Operating Deferred Tax Asset, net of deferred tax liabilities in 2023
+   Answer: -$574 (in millions)
+   Company: Costco
+   Question Type: basic
+--------------------------------------------------------------------------------
+
+30. Question: What is the operating cash tax rate in 2024?
+   Answer: 24.30%
+   Company: Costco
+   Question Type: assumption
+--------------------------------------------------------------------------------
+
+31. Question: Determine the Fully Diluted Shares Outstanding in 2024.
+   Answer: 445,592,000
+   Company: Costco
+   Question Type: basic
+--------------------------------------------------------------------------------
+
+32. Question: Calculate the Unlevered Beta for 2024.
+   Answer: 0.77
+   Company: Costco
+   Question Type: assumption
+--------------------------------------------------------------------------------
+
+33. Question: Compute Debt for 2024. Include Debt Equivalents.
+   Answer: $11,415 (in millions)
+   Company: Costco
+   Question Type: assumption
+--------------------------------------------------------------------------------
+
+34. Question: How much cash and cash equivalents did Costco have at year end 2024?
+   Answer: $11,144 (in millions)
+   Company: Costco
+   Question Type: basic
+--------------------------------------------------------------------------------
+
+35. Question: Compute Net Debt for 2024.
+   Answer: $271 (in millions)
+   Company: Costco
+   Question Type: assumption
+--------------------------------------------------------------------------------
+
+36. Question: What is the Book Value of Equity in 2024?
+   Answer: $23,622 (in millions)
+   Company: Costco
+   Question Type: basic
+--------------------------------------------------------------------------------
+
+37. Question: Calculate ROIC for 2024.
+   Answer: 25.33%
+   Company: Costco
+   Question Type: assumption
+--------------------------------------------------------------------------------
+
+38. Question: Determine Invested Capital including Goodwill for 2024, using 2% of revenue as max potential operating cash.
+   Answer: $29,239 (in millions)
+   Company: Costco
+   Question Type: assumption
+--------------------------------------------------------------------------------
+
+39. Question: Determine Invested Capital excluding Goodwill for 2024, using 2% of revenue as max potential operating cash.
+   Answer: $28,245 (in millions)
+   Company: Costco
+   Question Type: assumption
+--------------------------------------------------------------------------------
+
+40. Question: Determine Invested Capital including Goodwill for 2023, using 2% of revenue as max potential operating cash.
+   Answer: $26,915 (in millions)
+   Company: Costco
+   Question Type: assumption
+--------------------------------------------------------------------------------
+
+41. Question: Determine the Average Invested Capital (includes Goodwill) over 2023 and 2024.
+   Answer: $28,077 (in millions)
+   Company: Costco
+   Question Type: assumption
+--------------------------------------------------------------------------------
+
+42. Question: What is the operating portion of long-term assets in 2024?
+   Answer: $36,539 (in millions)
+   Company: Costco
+   Question Type: assumption
+--------------------------------------------------------------------------------
+
+43. Question: What is the operating portion of long-term assets in 2023?
+   Answer: $34,029 (in millions)
+   Company: Costco
+   Question Type: assumption
+--------------------------------------------------------------------------------
+
+44. Question: I see that there is a long-term assets line item. What is the portion of other long-term assets that's not accounted for, that we don't know what line item is is for, in 2024?
+   Answer: $961 (in millions)
+   Company: Costco
+   Question Type: assumption
+--------------------------------------------------------------------------------
+
+45. Question: What is the operating portion of long-term liabilities in 2024?
+   Answer: $456 (in millions)
+   Company: Costco
+   Question Type: assumption
+--------------------------------------------------------------------------------
+
+46. Question: What is the operating portion of long-term liabilities in 2023?
+   Answer: $452 (in millions)
+   Company: Costco
+   Question Type: assumption
+--------------------------------------------------------------------------------
+
+47. Question: What is the operating portion of long-term assets, net long-term liabilities in 2024?
+   Answer: $36,083 (in millions)
+   Company: Costco
+   Question Type: assumption
+--------------------------------------------------------------------------------
+
+48. Question: What is the operating portion of long-term assets, net long-term liabilities in 2023?
+   Answer: $33,577 (in millions)
+   Company: Costco
+   Question Type: assumption
+--------------------------------------------------------------------------------
+
+49. Question: What is the change in operating portion of long-term assets, net long-term liabilities from 2023 to 2024?
+   Answer: $2,506 (in millions)
+   Company: Costco
+   Question Type: assumption
+--------------------------------------------------------------------------------
+
+50. Question: What is the portion of other long-term assets that's not accounted for in 2024, net of the portion of other long-term operating liabilities not accounted for?
+   Answer: $505 (in millions)
+   Company: Costco
+   Question Type: assumption
+--------------------------------------------------------------------------------
+
+51. Question: After separating other long-term assets, net of long-term liabilities to find what portion of that number is unaccounted for, can you measure the change between 2023 and 2024 for that operating metric?
+   Answer: $49 (in millions)
+   Company: Costco
+   Question Type: assumption
+--------------------------------------------------------------------------------
+
+52. Question: Calculate NOPAT for 2024. Make sure to make adjustments for one-time changes.
+   Answer: $7,113 (in millions)
+   Company: Costco
+   Question Type: assumption
+--------------------------------------------------------------------------------
+
+53. Question: Estimate Variable Lease Assets in 2023
+   Answer: $1,405 (in millions)
+   Company: Costco
+   Question Type: assumption
+--------------------------------------------------------------------------------
+
+54. Question: Estimate Variable Lease Assets in 2024
+   Answer: $1,502 (in millions)
+   Company: Costco
+   Question Type: assumption
+--------------------------------------------------------------------------------
+
+55. Question: Estimate the change in variable lease assets from 2023 to 2024
+   Answer: $97 (in millions)
+   Company: Costco
+   Question Type: assumption
+--------------------------------------------------------------------------------
+
+56. Question: Estimate Variable Lease Liability in 2024
+   Answer: $1,466 (in millions)
+   Company: Costco
+   Question Type: assumption
+--------------------------------------------------------------------------------
+
+57. Question: What is operating cash for 2024? If there is no mention, assume it is the minimum of 2% of revenue and cash & cash equivalents.
+   Answer: $5,089 (in millions)
+   Company: Costco
+   Question Type: basic
+--------------------------------------------------------------------------------
+
+58. Question: What is excess cash in 2024, given that operating cash is calculated as the minimum between taking 2% of revenue and cash.
+   Answer: $6,055 (in millions)
+   Company: Costco
+   Question Type: basic
+--------------------------------------------------------------------------------
+
+59. Question: What is operating current assets in 2024, assuming that 2% of revenue is operating cash?
+   Answer: $28,191 (in millions)
+   Company: Costco
+   Question Type: assumption
+--------------------------------------------------------------------------------
+
+60. Question: What is operating current liability in 2024?
+   Answer: $35,035 (in millions)
+   Company: Costco
+   Question Type: assumption
+--------------------------------------------------------------------------------
+
+61. Question: What is Operating Working Capital for 2024, using 2% of revenue as max potential operating cash?
+   Answer: -$6,844 (in millions)
+   Company: Costco
+   Question Type: assumption
+--------------------------------------------------------------------------------
+
+62. Question: What is 2024 Interest Expense?
+   Answer: $280 (in millions)
+   Company: Costco
+   Question Type: assumption
+--------------------------------------------------------------------------------
+
+63. Question: Calculate the EBIT Interest Coverage Ratio for 2024.
+   Answer: 33.53x
+   Company: Costco
+   Question Type: assumption
+--------------------------------------------------------------------------------
+
+64. Question: Calculate the EBITA Interest Coverage Ratio for 2024.
+   Answer: 42.72x
+   Company: Costco
+   Question Type: assumption
+--------------------------------------------------------------------------------
+
+65. Question: Determine ROA for 2024.
+   Answer: 11.31%
+   Company: Costco
+   Question Type: assumption
+--------------------------------------------------------------------------------
+
+66. Question: Calculate ROE for 2024.
+   Answer: 30.27%
+   Company: Costco
+   Question Type: basic
+--------------------------------------------------------------------------------
+
+67. Question: What is the Customer (Logo) Retention Rate in 2024?
+   Answer: 90.50%
+   Company: Costco
+   Question Type: basic
+--------------------------------------------------------------------------------
+
+68. Question: Calculate ARPU (Average Revenue Per User) for 2024.
+   Answer: $3,457.24
+   Company: Costco
+   Question Type: basic
+--------------------------------------------------------------------------------
+
+69. Question: What is revenue per store cut by geography in 2024?
+   Answer: US: $299.91 per store; Canada: $322.91 per store; International: $210.93 per store
+   Company: Costco
+   Question Type: basic
+--------------------------------------------------------------------------------
+
+70. Question: What was Costco Sames Store Sales growth?
+   Answer: 5%
+   Company: Costco
+   Question Type: basic
+--------------------------------------------------------------------------------
+
+71. Question: How many members churned in 2024?
+   Answer: 6,745
+   Company: Costco
+   Question Type: basic
+--------------------------------------------------------------------------------
+
+72. Question: How many new members joined in 2024?
+   Answer: 11,945
+   Company: Costco
+   Question Type: basic
+--------------------------------------------------------------------------------
+
+73. Question: What's the operating working capital in 2023, using 2% of revenue as max potential operating cash?
+   Answer: -$6,662 (in millions)
+   Company: Costco
+   Question Type: basic
+--------------------------------------------------------------------------------
+
+74. Question: What is the change in operating working capital from 2023 to 2024, using 2% of revenue as max potential operating cash?
+   Answer: -$182 (in millions)
+   Company: Costco
+   Question Type: basic
+--------------------------------------------------------------------------------
+
+75. Question: Compute UFCF (Unlevered Free Cash Flow) for 2024.
+   Answer: $4,664 (in millions)
+   Company: Costco
+   Question Type: assumption
+--------------------------------------------------------------------------------
+
+76. Question: Calculate levered free cash flow for 2024.
+   Answer: $5,921 (in millions)
+   Company: Costco
+   Question Type: basic
+--------------------------------------------------------------------------------
+
+77. Question: Calculate Accounts Receivables Days for 2024.
+   Answer: 3.59x
+   Company: Costco
+   Question Type: basic
+--------------------------------------------------------------------------------
+
+78. Question: Calculate Accounts Payables Days for 2024.
+   Answer: 30.29x
+   Company: Costco
+   Question Type: basic
+--------------------------------------------------------------------------------
+
+79. Question: Calculate Inventory Turnover for 2024.
+   Answer: 12.6x
+   Company: Costco
+   Question Type: basic
+--------------------------------------------------------------------------------
+
+80. Question: Determine the EV/Sales ratio for 2024.
+   Answer: 1.67x
+   Company: Costco
+   Question Type: assumption
+--------------------------------------------------------------------------------
+
+81. Question: Calculate Asset Turnover for 2024.
+   Answer: 3.67x
+   Company: Costco
+   Question Type: basic
+--------------------------------------------------------------------------------
+
+82. Question: What was Sales per store in 2024?
+   Answer: $285.90
+   Company: Costco
+   Question Type: basic
+--------------------------------------------------------------------------------
+
+83. Question: What was Sales per sq ft in 2024?
+   Answer: $1,943.87
+   Company: Costco
+   Question Type: basic
+--------------------------------------------------------------------------------
+
+84. Question: What was Sales per sq ft cut by geography in 2024?
+   Answer: US: $2,021.33; Canada: $2,249.94 International: $1,458.27
+   Company: Costco
+   Question Type: basic
+--------------------------------------------------------------------------------
+
+85. Question: Company X trades at $15 per share and has 80 shares outstanding, with $80 in net income. Company Y trades at $30 per share, has 15 shares outstanding, and earns $20 in net income. Company X acquires Company Y at no premium, paying 60% in new stock and 40% in cash. After the transaction, what is the percentage change in Company X's EPS?
+   Answer: 2%
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+86. Question: You deposit $80 right now. After three years, your annual IRR is 10%. How much will your deposit be worth at the end of those three years?
+   Answer: $106.48
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+87. Question: Let's say you're going to receive $75 in 7 years, with a discount rate of 9%. What is its value today?
+   Answer: $41.06
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+88. Question: You have two potential investments, Company X and Company Y. Both companies are available at the same purchase price and both project a levered IRR of 25%. However, investing in Company X requires 4 turns of leverage while investing in Company Y requires 7 turns. Which company would you invest in and why?
+   Answer: Company X
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+89. Question: You have two potential investments, Company X and Company Y. Both companies are available at the same purchase price and both project a levered IRR of 25%. However, investing in Company X requires 4 turns of leverage while investing in Company Y requires 7 turns. Which investment has a higher unlevered IRR?
+   Answer: Company X
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+90. Question: Suppose Company X trades at $10 per share, with a P/E ratio of 2x, and it has 300 shares outstanding. Company Y trades at $8 per share, with a P/E ratio of 2x, and has 120 shares outstanding. Company X plans to buy Company Y for $9 per share, funding half of the purchase with cash (raised through debt at a 6% cost of debt that matures over four years) and half with newly issued stock. The deal also incurs $15 in financing costs and $20 in transaction fees. Is this acquisition accretive or dilutive to Company X?
+   Answer: Accretive
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+91. Question: Suppose a company issues 100 million in debt and uses the proceeds to repurchase its own shares. What is the effect on the company's Enterprise Value (increase, decrease, or no change)?
+   Answer: No change
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+92. Question: Suppose a company raises 25 million of debt and uses it to buy back shares from its shareholders. How does this transaction affect the firm's equity value (increase, decrease, or no change)?
+   Answer: Decrease
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+93. Question: Consider a firm with a market cap of 800 million and net income of 80 million that takes on 100 million in debt to buy back shares. How does this transaction influence its P/E multiple (increase, decrease or no change)?
+   Answer: Decrease
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+94. Question: A firm generating 50 of EBITDA at a 20% EBITDA margin is bought at a 10x multiple, using 40% debt to finance the deal. If the company has 100 of cash at exit and is sold at a 10x multiple after five years, what annual revenue growth rate is needed to receive a 25% IRR?
+   Answer: 15%
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+95. Question: If a customer buys a $75 Starbucks gift card, what is the immediate impact on Starbucks' cash flow before the card is used (cash inflow, cash outflow, or no change)?
+   Answer: Cash inflow of $75
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+96. Question: Suppose you buy a $75 Starbucks gift card, then spend the entire balance on drinks. What happens to Starbucks's cash flow at the moment you use that $75 (cash inflow, cash outflow, or no change)?
+   Answer: No change
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+97. Question: Company X trades at $40 per share, owns 100 shares in total, and earns $200 of net income. Company Y trades at $30 per share, has 50 shares outstanding, and generates $50 in net income. X acquires Y entirely by issuing new shares. Is this deal accretive or dilutive to Company X?
+   Answer: Dilutive
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+98. Question: A firm has a P/E of 12x, a borrowing rate of 5%, and a D/E of 4x. Based on these figures, is the cost of equity or debt cheaper?
+   Answer: Cost of Debt
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+99. Question: A corporation's WACC is 9%, its after-tax cost of debt is 5%, and its debt-to-equity ratio is 60%. What is its cost of equity?
+   Answer: 10.56%
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+100. Question: A firm has 200 million of equity, 100 million of debt, and 70 million of cash. The company raises a 30 million term loan to finance a 60 million acquisition. How is its enterprise value affected?
+   Answer: 60M increase
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+101. Question: A firm has 200 million of equity, 100 million of debt, and 70 million of cash. The company raises a 30 million term loan to finance a 60 million acquisition. How is its equity value affected?
+   Answer: 30M increase
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+102. Question: Imagine a business raises 60 million in new equity and immediately pays that amount as a dividend. What is the impact on its enterprise value?
+   Answer: stays the same
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+103. Question: A firm obtains raises 40 million in equity and immediately distributes it to its shareholders as a one-time dividend. How does this affect the firm's equity value?
+   Answer: unchanged
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+104. Question: A private equity group acquires a company with 200M of EBITDA at a 4x multiple, financing 50% with debt. In the fifth year, EBITDA has grown to 300M, and the firm exits at a 5x multiple. Across this period, 400M of debt was paid down, with no remaining surplus cash. What are the MOIC and the IRR of this investment?
+   Answer: 3x MOIC, 25% IRR
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+105. Question: Suppose an enterprise value is 200 million, with 60 million in senior debt, 30 million in junior debt, and 10 million in cash. How would you determine the company's equity value?
+   Answer: $120M
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+106. Question: If a firm has an enterprise value of 2500, cash of 200, debt of 600, a 15x P/E ratio, and 50 shares outstanding, what is the firm's EPS?
+   Answer: $2.80.
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+107. Question: Suppose a firm is worth 2.5 million. If its borrowing rate increases, how does the firm's enterprise value (increase, decrease, or no change)?
+   Answer: no change
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+108. Question: Suppose a business trades at 3x revenue and 6x EBITDA. What would its EBITDA margin be?
+   Answer: 50%
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+109. Question: Suppose Firm X has a share price of $60, a P/E of 12x, and 500 shares outstanding, while Firm Y trades at $30 per share, a P/E of 8x, and has 200 shares outstanding. If Firm X purchases Firm Y entirely with stock, will the deal increase or decrease Firm X's EPS?
+   Answer: Increase
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+110. Question: You operate a phone case business, charging $30 per case, with $14 of manufacturing costs per case, and SG&A at 12% of sales. If you sell 25 cases, what is your EBITDA?
+   Answer: $310
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+111. Question: A firm records 120 million in total revenue and 90 million in operating costs, yielding 30 million in operating profit. Of these costs, 50 percent are fixed and 50 percent are variable. If volume rises by 15 percent, by how much does operating profit change?
+   Answer: $11.5 million increase
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+112. Question: Suppose a company begins with revenue of 70 and EBITDA of 14. Over five years, it consistently maintains the same EBITDA margin while revenue rises by 10 each year. The business is bought at a 350 enterprise value, 60% funded through debt, and sold at a 450 enterprise value. Every year, depreciation and amortization is 3, capital expenditure is 3, the tax rate is 50 percent, there is no interest expense, and net working capital does not change. What are the MOIC and IRR?
+   Answer: 2x MOIC, 15% IRR
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+113. Question: You run a coffee mug shop charging $25 per mug. Your production cost per mug is $12, and you also pay a 15% overhead on the selling price. You plan to double your total revenue by increasing prices not volume. What will your EBITDA be after the price increase?
+   Answer: $457.50
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+114. Question: Suppose you run a business selling backpacks at $25 each and sell 20 backpacks. Producing each backpack costs $12, and your SG&A expenses are 12% of revenue. You want to double your total revenue solely by increasing volume, not by raising prices. What is your EBITDA after this increase?
+   Answer: $400
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+115. Question: A firm has two tranches of debt, each at 150M, for a total of 300M, while its enterprise value is 250M. What does each tranche trade at?
+   Answer: 83% of par
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+116. Question: Company X is currently valued at 5x EV/EBITDA and 5x P/E, while Company Y trades at 6x EV/EBITDA and 4x P/E. If X acquires Y, would the deal increase or decrease X's earnings per share?
+   Answer: Increase
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+117. Question: You acquire a firm for 80 million at a 10x EBITDA multiple, financed with 60% debt at a 5% interest rate. You hold the company for 5 years and exit at a 9x multiple, with zero EBITDA growth and 2 million of annual capital expenditure. For the 5-year hold, what is the MOIC, IRR, and the first-year LFCF yield?
+   Answer: 1.3x MOIC, 6% IRR, 11.25% LFCF yield
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+118. Question: You purchase a company for 150M at a 15x EBITDA multiple, hold it for 5 years without EBITDA growth, then exit at a 15x multiple. The investment is bought at 50% LTV with 4% cost of debt. You also spend 2M on capital expenditures annually. What are the MOIC and IRR of the deal? Assume add debt is paid down at exit and you only have access to a basic calculator.
+   Answer: MOIC: 1.33x, IRR: 6%
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+119. Question: A soda company sells each beverage for $8 while spending $3 to produce each drink. They typically sell 900 drinks per month. If they switch to a membership plan offering 4 drinks a month, what should the monthly fee be to hold the same profit?
+   Answer: $17
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+120. Question: A private equity group acquires a gadget-maker via LBO. The company sells 12 gadgets in its first year. How many gadgets must it sell in year 5 to reach a 25% IRR? The company starts with EBITDA of 60, is bought at a 9x multiple, and is exited at a 10x multiple after 5 years. The deal uses 25% debt financing. Annual non-gadget revenue is 120, the initial EBITDA margin is 25%, gadget prices rise by $4 in year 5, the final EBITDA margin is 25%, and the firm finishes the period with 350 in cash. Assume a 3x MOIC corresponds to a 25% IRR.
+   Answer: 20
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+121. Question: A financial sponsor acquires a business with EBITDA of $24 and an 10x purchase multiple, financed with a 2:1 debt-to-equity structure. Five years later, the sponsor exits when EBITDA is $40 at the same 10x multiple. Over the holding period, $70 of debt is fully paid down through free cash flow. What are the MOIC and IRR on the sponsor's equity?
+   Answer: 3.875x MOICC, 31% IRR
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+122. Question: A business has a P/E ratio of 12 and reports $4 in EPS, making its stock trade at $48. If the tax rate is lowered from 40% to 28%, what is the updated stock price assuming the same P/E ratio?
+   Answer: $57.60
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+123. Question: Suppose a firm pays out a $15 dividend. How does this impact the firm's enterprise value (increase, decrease, or no change)?
+   Answer: No change
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+124. Question: If a firm disburses a $12 dividend to its shareholders, what happens to its Equity Value (increase, decrease, or no change)?
+   Answer: Decrease
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+125. Question: Suppose you hold a $150 million senior note on a firm's debt. There is a 40% chance the firm defaults with no recovery, and a 60% chance that its enterprise value reaches $250 million (fully covering your note). What is the fair market price of this debt?
+   Answer: 60c
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+126. Question: A firm trading at a 20x P/E acquires a target at 10x P/E using 50% new shares and 50% debt. What interest rate on the borrowed funds would keep the deal neutral to earnings per share?
+   Answer: 15%
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+127. Question: If a business is trading at 15x its earnings and acquires a target valued at 7x earnings, does this transaction increase or decrease the acquirer's earnings per share?
+   Answer: Unknown unless deal is 100%, where deal would be accretive
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+128. Question: Imagine a firm valued at 600M, with 400M in senior secured notes and an additional 300M in junior secured notes. How would each note class be priced based on this valuation?
+   Answer: First lien trades at 100c, second lien trades at 66.7c
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+129. Question: A business earns $200 in sales per period, with a 25% gross margin. Which option boosts profit most: increasing unit sales by 16%, raising prices by 4%, or cutting overhead by $2?
+   Answer: Price and volume
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+130. Question: Suppose you have two investment opportunities, both offering a 22% levered IRR. Option X will be financed at 4x leverage, while Option Y will be financed at 7x leverage, and both require the same equity investment. Which investment has  greater financial risk?
+   Answer: Option Y
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+131. Question: If Company B funds an acquisition with debt, how could the resulting interest expenses and added income change its net earnings and shareholder returns (return on equity)?
+   Answer: Decrease Net Income and increase return on equity
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+132. Question: As a company takes on more debt, what happens to the company's WACC?
+   Answer: Decrease WACC
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+133. Question: Two similar firms have identical operations but different funding methods: Firm A raises 60% through equity and 40% via debt, whereas Firm B relies solely on equity. How does Firm A's debt financing affect its cash flow statement versus Firm B?
+   Answer: CFO decreased, CFI unchanged, CFF potentially decreased
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+134. Question: If we increase annual depreciation by 25 dollars, what effect does this have on the discounted cash flow analysis?
+   Answer: Increase valuation
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+135. Question: A manufacturing company has an EV/EBITDA multiple of 12x and a P/E ratio of 12x. From this information, how much net debt does this company have? 
+   Answer: EBITDA * 6
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+136. Question: Imagine two comparable firms that earn identical operating income. Firm X is financed with 60% equity and 40% debt, while Firm Y is completely equity-funded. How does Firm X's interest expense on debt affect its net income relative to Firm Y's net income?
+   Answer: Firm X has less net income relative to Firm Y
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+137. Question: A firm acquires a piece of machinery for 250 with cash. Demonstrate how this transaction affects the primary financial statements.
+   Answer: On the income statement, nothing changes. On the cash flow statement, there is an outflow of 250 under cash flow for investing for purchasing PP&E. On the balance sheet, cash goes down by 250 and PP&E goes up by 250, which balances.
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+138. Question: How does a 100-dollar asset write-down at a 20% tax rate affect each financial statement?
+   Answer: On the income statement, pre-tax income goes down by 100, and net income is down by 80. On the cash flow statement, net income is down by 80, but you add back 100 because it was a non-cash expense, so cash is up by 20. On the balance sheet, cash is up by 20, some sort of PP&E or asset is down by 100, which means assets are down by 80. Since net income, which is in shareholders equity is down by 80, the balance sheet balances.
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+139. Question: Imagine a company disposes of an asset booked at 60 and receives 120 in proceeds. How would this transaction affect the three financial statements, assuming a 20% tax rate?
+   Answer: On the income statement, there is a gain of 60, increasing net income by 60 * (1-0.2) = $48. On the cash flow statement, net income is up by 48 in the operating activities. Gain on sales is a non-cash expense, reducing cash flow from operations by $60, leaving cash flow from operations down by $12. In the investing activities, proceeds from asset sales increase by $120, leaving cash overall up $120 -$12 = $108. 
+On the balance sheet, cash is up by $108, and PP&E is down by $60, leaving assets up $48. Shareholders equity is increased by $48 as well due to the increase in net income.
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+140. Question: A company spends 15 dollars in cash to purchase more inventory. Assuming a 35% income tax rate, how would this transaction influence the firm's financial statements?
+   Answer: On the income statement, nothing happens. On the cash flow statement, cash is down by 15 in CFO for purchasing inventory. On the balance sheet, cash is down by 15 and inventory is up by 15, balancing the balance sheet.
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+141. Question: A company records a $200 sale, receiving $100 in cash and $100 on credit. With a 35% tax rate, how do the income statement, balance sheet, and cash flow statement each change?
+   Answer: On the income statement, pre-tax income is up by 200. With a tax rate of 35% net income is up by 130. On the cash flow statement, net income is up by 130, but 100 needs to be subtracted since it was non-cash revenue (increase in accounts receivable), so CFO is up by 30. There are no changes in CFF or CFI, so cash is up by 30. On the balance sheet cash is up by 30, accounts receivable is up by 100 and shareholders equity is up by 130 from net income or retained earnings.
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+142. Question: Walk me through how the 3 statements are impacted by a merger.
+   Answer: For the income statement, the individual line items are combined. New line items are added for revenue or cost synergies as well as interest expense if debt was used to fund the acquisition or a change in interest expense from refinancing. Deal costs are also included. In the cash flow statement, you would also combine the line items, making to potentially factor new depreciation and amortization from changing values of intangible or tangible assets from the acquisition. If there are any principal payments related to the new debt, make sure to include that. Finally, combine balance sheet line items and make sure to add goodwill as an asset if the acquirer paid a premium to market value.
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+143. Question: How are the three statement are affected when a company buys $300 of inventory by issuing new debt?
+   Answer: There is no immediate impact on the income statement since revenue has yet to be recognized at this point. On the Cash flow statement, cash flow from operations is down by $300 for the increase in inventory. The issuance of debt reduces cash flow from financing by $300 leaving net cash unchanged. On the balance sheet, inventory increases assets by $300 and debt increases the liabilities by $300.
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+144. Question: Describe the outcome of a $100 increase in depreciation on the three financial statements, assuming an 12% tax rate.
+   Answer: On the income statement, pre-tax income is down by 100, net income is down by 88 (100 * (1 - 0.12)). On the cash flow statement, net income is down by 88 and 100 is added back since depreciation is a non-cash expense. Cash is up by 12. On the balance sheet, cash is up by 12, PP&E is down by 100, so assets are down by 88. This matches with liabilities + equities, as retained earnings is down by 88, which is a part of shareholders equity,.
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+145. Question: The firm currently has 200 of PIK debt at an 10% interest rate and faces a 35% tax rate, how will this flow through the balance sheet, income statement, and cash flow statement?
+   Answer: On the income statement, pre-tax income is down by 20 (200 * 10%). With a 35% tax rate, net income is down by 20 * (0.65) = 13. On the cash flow statement, net income is down by 13. However, since PIK is a non-cash expense it is added back, so cash is up by 7, which is -13 + 20. On the balance sheet, cash is up by 7. On the liabilities side, debt is up by 20, from the interest accruing to the principal. Retained earnings is down by 13, so liabilities + equity is up by 7 (20 - 13), balancing with assets.
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+146. Question: A business sells of an asset with a carrying value of 50 for 75. Assume a 25% tax rate. How does this affect the financial statements?
+   Answer: On the income statement, a gain on sale increases net income by $25 * (1-0.25) = $18.75. On the cash flow statement, net income in CFO is increased by $18.75, however we subtract the non-cash $25 gain on sale, leaving CFO down by $6.25. Sale of asset increases cash flow from investing by $75, resulting in a net cash increase of $68.75. On the balance sheet, cash increases by $68.75 and PPE is decreased by $50, leaving assets up by $18.75. Shareholders equity is increased by $18.75 from the increase in net income.
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+147. Question: A firm borrowed $300 in order to buy goods. It later sold those goods for $600, incurred $150 in operating expenses, paid 6% interest on the loan, and repaid 12% of the original principal. Assume a tax rate of 10% How are the income statement, balance sheet, and cash flow statement affected after this transaction?
+   Answer: In the income statement, revenue is up 600, subtract 300 for COGS, 150 for Opex, so EBIT is 600 -300 -150 = 150. Interest expense is 300 * .12 = 36. Pre-tax income is 150 - 36 = 114. Post-tax income is 114 * 0.9 or 102.6. On the cash flow statement net income is up 102.6 and you add back 300 since inventory went down (and was a non-cash expense), 12% of principal is paid back or .12 * 300 = 36, so cash is up by 102.6 + 300 - 36 = 366.6. On the balance sheet, cash is up by 366.6, inventory is down by 300. On the liabilities side, debt is down by 36 and retained earnings is up by 102.6. 366.6 - 300 = 66.6. Liabilities +Equity = -36 + 102.6 = 66.6. Balance sheet balances.
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
+148. Question: Company X buys back stock with debt. How does that impact the P/E ratio of the company?
+   Answer: P/E ratio typically decreases
+   Company: None
+   Question Type: conceptual
+--------------------------------------------------------------------------------
+
