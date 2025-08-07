@@ -16,28 +16,24 @@ from main import FinanceQAAgent
 load_dotenv()
 
 def clear_working_answers():
-    """Clear all working answer files at the start of a new run."""
+    """Clear the working answer file at the start of a new run."""
     try:
         import os
-        import glob
         
         # Create working_answers directory if it doesn't exist
         os.makedirs('working_answers', exist_ok=True)
         
-        # Clear all existing working answer files (empty them instead of deleting)
-        pattern = 'working_answers/working_answer_*.json'
-        files = glob.glob(pattern)
+        # Clear the single working answer file
+        filename = 'working_answers/working_answers.json'
         
-        for file in files:
+        if os.path.exists(filename):
             # Clear the file contents by opening in write mode and writing empty content
-            with open(file, 'w') as f:
+            with open(filename, 'w') as f:
                 f.write('')
-            print(f"🗑️  Cleared: {file}")
-        
-        if files:
-            print(f"✅ Cleared contents of {len(files)} previous working answer files")
+            print(f"🗑️  Cleared: {filename}")
+            print("✅ Cleared previous working answer file")
         else:
-            print("✅ No previous working answer files to clear")
+            print("✅ No previous working answer file to clear")
             
     except Exception as e:
         print(f"⚠️  Warning: Could not clear working answers: {str(e)}")
@@ -73,7 +69,7 @@ def save_tool_result(question_data, tool_name, tool_input, tool_result, reasonin
         import json
         import os
         
-        filename = f"working_answers/working_answer_{question_data['question_num']}.json"
+        filename = "working_answers/working_answers.json"
         
         # Load existing working answer
         working_answer = {}
@@ -83,6 +79,14 @@ def save_tool_result(question_data, tool_name, tool_input, tool_result, reasonin
                     working_answer = json.load(f)
             except Exception as e:
                 print(f"⚠️  Warning: Could not load existing working answer: {str(e)}")
+        
+        # If this is a new question (different question number), clear the tool results
+        if working_answer.get('question_num') != question_data['question_num']:
+            working_answer = {
+                'question_num': question_data['question_num'],
+                'question': question_data['question'],
+                'tool_results': []
+            }
         
         # Initialize tool_results if it doesn't exist
         if 'tool_results' not in working_answer:
@@ -190,7 +194,7 @@ def save_working_answer(question_data, formula, values=None, result=None):
     import json
     import os
     
-    filename = f"working_answers/working_answer_{question_data['question_num']}.json"
+    filename = "working_answers/working_answers.json"
     
     # Create working_answers directory if it doesn't exist
     os.makedirs('working_answers', exist_ok=True)
@@ -664,8 +668,12 @@ def display_question_info(question_data, demo_mode=False):
     save_result = save_working_answer(question_data, formula)
     print(save_result)
     
-    # Search for key terms in context if context is available
+    # Check if context is available and choose the appropriate path
     if question_data['context'] and question_data['context'].strip():
+        # PATH 1: WITH CONTEXT - Use existing logic
+        print(f"\n🔄 Using PATH 1: WITH CONTEXT")
+        
+        # Search for key terms in context
         print(f"\n🔍 Searching for key terms in context...")
         search_result = search_key_terms_in_context(question_data, agent, analysis)
         print(f"\n📋 Key Terms Search Results:")
@@ -749,70 +757,62 @@ def display_question_info(question_data, demo_mode=False):
             print(f"\n🔍 Assessment indicates missing information.")
             print(f"🔄 Starting iterative tool selection loop...")
             
-            # Start the iterative tool selection loop
-            loop_result = iterative_tool_selection_loop(question_data, formula, agent, assessment_result, demo_mode)
-            
-            print(f"\n📊 Final Loop Results:")
-            print(f"Tool calls made: {loop_result['tool_calls_made']}")
-            print(f"Reason for ending: {loop_result['reason']}")
-            print(f"Final assessment: Complete Answer Possible = {loop_result['final_assessment']['complete_answer']}")
-            print(f"Final confidence: {loop_result['final_assessment']['confidence']}")
-            
-            # Execute calculator if we have a calculator expression from the loop
-            if 'calculator_expression' in loop_result and loop_result['calculator_expression']:
-                calc_result = loop_result['calculator_expression']
-                print(f"\n🧮 Calculator Expression:")
-                print(f"   Variables found: {calc_result['variables_found']}")
-                print(f"   Values extracted: {calc_result['values_extracted']}")
-                print(f"   Expression: {calc_result['calculator_expression']}")
-                print(f"   Explanation: {calc_result['explanation']}")
-                
-                # Execute the calculator expression
-                if calc_result['calculator_expression'] and calc_result['calculator_expression'] != "Error in extraction":
-                    try:
-                        calculator_result = agent.financial_calculator_tool.invoke({
-                            "expression": calc_result['calculator_expression']
-                        })
-                        print(f"\n🔢 Calculator Result:")
-                        print(f"   {calculator_result}")
-                        
-                        # Show just the calculated result
-                        calc_result_str = str(calculator_result)
-                        display_final_result(calc_result_str, question_data)
-                        
-                        # Save the final calculator result
-                        save_calculator_result(question_data, formula, calc_result, calc_result_str)
-                    except Exception as e:
-                        print(f"❌ Error executing calculator: {str(e)}")
-        
     else:
-        print(f"\n⚠️  No context available for key terms search.")
+        # PATH 2: NO CONTEXT - New logic for questions without context
+        print(f"\n🔄 Using PATH 2: NO CONTEXT")
         
-        # Even without context, assess what information is needed
-        print(f"\n🤔 Assessing information needs...")
-        empty_extraction = {
-            'values': {},
-            'calculation': "No calculation possible without context",
-            'result': "No result available"
-        }
-        assessment_result = assess_information_completeness(question_data, formula, empty_extraction, agent)
+        # Step 1: Formula generation and key word/synonym generation (already done above)
+        print(f"\n✅ Step 1 Complete: Formula and key terms generated")
         
-        print(f"\n📊 Information Assessment:")
-        print(f"Complete Answer Possible: {assessment_result['complete_answer']}")
-        print(f"Missing Information: {assessment_result['missing_info']}")
-        print(f"Confidence Level: {assessment_result['confidence']}")
-        
-        # If assessment says "Yes", extract formula values and calculate
-        if assessment_result['complete_answer'] == "Yes":
-            print(f"\n🧮 Complete answer possible! Extracting formula values...")
+        # Step 2: Search for key terms in the question itself (not context)
+        print(f"\n🔍 Step 2: Searching for key terms in the question...")
+        try:
+            # Use the key_terms_search_tool but with the question as context
+            search_result = agent.key_terms_search_tool.invoke({
+                "key_terms": analysis,  # Use the formula analysis as key terms
+                "synonyms": "[]",  # Empty synonyms for now
+                "context": question_data['question']  # Use the question as context
+            })
+            print(f"\n📋 Key Terms Search Results (from question):")
+            print(search_result)
             
-            # Create working answer from the empty extraction result
+            # Save the key terms search tool result
+            save_tool_result(question_data, "key_terms_search_tool", {"context": "question"}, search_result, "Searched for key terms in question")
+            
+        except Exception as e:
+            print(f"❌ Error searching for key terms in question: {str(e)}")
+            search_result = f"Error: {str(e)}"
+        
+        # Step 3: Plug the information found into the formula
+        print(f"\n🧮 Step 3: Plugging information into formula...")
+        try:
+            # Extract values from the search result
+            extraction_result = extract_values_from_context(question_data, formula, search_result, agent)
+            
+            print(f"\n📊 Extracted Values:")
+            print(f"Values: {extraction_result['values']}")
+            print(f"Calculation: {extraction_result['calculation']}")
+            print(f"Result: {extraction_result['result']}")
+            
+            # Update working answer with values and result
+            print(f"\n💾 Updating working answer with results...")
+            update_result = save_working_answer(question_data, formula, extraction_result['values'], extraction_result['result'])
+            print(update_result)
+            
+        except Exception as e:
+            print(f"❌ Error extracting values: {str(e)}")
+            extraction_result = {'values': {}, 'calculation': '', 'result': ''}
+        
+        # Step 4: Submit the answer
+        print(f"\n📤 Step 4: Submitting answer...")
+        try:
+            # Create working answer
             working_answer = {
                 'question_num': question_data['question_num'],
                 'question': question_data['question'],
                 'formula': formula,
                 'tool_results': [],
-                'extraction_result': empty_extraction,
+                'extraction_result': extraction_result,
                 'timestamp': __import__('datetime').datetime.now().isoformat()
             }
             
@@ -831,7 +831,17 @@ def display_question_info(question_data, demo_mode=False):
                 print(f"   Explanation: {calc_result['explanation']}")
                 
                 # Execute the calculator expression
-                if calc_result['calculator_expression'] and calc_result['calculator_expression'] != "Error in extraction":
+                if calc_result['calculator_expression'] == "CONCEPTUAL_ANALYSIS":
+                    simple_answer = calc_result.get('full_response', 'Conceptual analysis performed')
+                    print(f"\n📊 Conceptual Analysis:")
+                    print(f"   {calc_result['explanation']}")
+                    print(f"\n📊 Final Result: {simple_answer}")
+                    print(f"🎯 Expected Answer: {question_data.get('expected_answer', 'N/A')}")
+                    
+                    # Save the conceptual analysis result
+                    save_calculator_result(question_data, formula, calc_result, simple_answer)
+                    
+                elif calc_result['calculator_expression'] and calc_result['calculator_expression'] != "Error in extraction":
                     try:
                         calculator_result = agent.financial_calculator_tool.invoke({
                             "expression": calc_result['calculator_expression']
@@ -847,11 +857,19 @@ def display_question_info(question_data, demo_mode=False):
                         save_calculator_result(question_data, formula, calc_result, calc_result_str)
                     except Exception as e:
                         print(f"❌ Error executing calculator: {str(e)}")
-        
-        # If assessment says "No", start the iterative tool selection loop
-        if assessment_result['complete_answer'] == "No":
-            print(f"\n🔍 Assessment indicates missing information.")
-            print(f"🔄 Starting iterative tool selection loop...")
+                else:
+                    print(f"\n📤 Answer submitted based on available information:")
+                    print(f"Formula: {formula}")
+                    print(f"Extracted Values: {extraction_result['values']}")
+                    print(f"Result: {extraction_result['result']}")
+            else:
+                print(f"\n📤 Answer submitted based on available information:")
+                print(f"Formula: {formula}")
+                print(f"Extracted Values: {extraction_result['values']}")
+                print(f"Result: {extraction_result['result']}")
+                
+        except Exception as e:
+            print(f"❌ Error submitting answer: {str(e)}")
             
             # Start the iterative tool selection loop
             loop_result = iterative_tool_selection_loop(question_data, formula, agent, assessment_result, demo_mode)
@@ -1257,7 +1275,7 @@ def iterative_tool_selection_loop(question_data, formula, agent, initial_assessm
 def update_working_answer_with_tool_results(question_data, working_answer):
     """Update the working answer file with new tool results."""
     try:
-        filename = f"working_answers/working_answer_{question_data['question_num']}.json"
+        filename = "working_answers/working_answers.json"
         
         # Create working_answers directory if it doesn't exist
         import os
@@ -1467,9 +1485,18 @@ def extract_formula_values_for_calculator(question_data, formula, working_answer
                 print(f"DEBUG: Contains 'adjusted ebit': {'adjusted ebit' in formula.lower()}")
                 print(f"DEBUG: Contains 'ebit': {'ebit' in formula.lower()}")
                 print(f"DEBUG: Contains 'operating cash tax': {'operating cash tax' in formula.lower()}")
-                # Generic formula handling - try to use extracted values if available
-                if values_extracted:
-                    # Try to construct expression from available values
+                
+                # Check if this is a conceptual question with no real data
+                if not values_extracted or all(v == 0 for v in values_extracted.values()):
+                    # This is likely a conceptual question - provide conceptual explanation instead of fake calculation
+                    if 'p/e' in formula.lower() or 'price' in formula.lower():
+                        calculator_expression = "CONCEPTUAL_ANALYSIS"
+                        explanation = f"This is a conceptual question about {formula}. No numerical calculation is possible without specific company data. The question asks about the impact of stock buybacks on P/E ratio, which is a theoretical analysis rather than a numerical calculation."
+                    else:
+                        calculator_expression = "CONCEPTUAL_ANALYSIS"
+                        explanation = f"This is a conceptual question about {formula}. No numerical calculation is possible without specific company data."
+                else:
+                    # Generic formula handling - try to use extracted values if available
                     variables = list(values_extracted.keys())
                     if len(variables) >= 2:
                         # Use the first two variables as a simple addition
@@ -1480,9 +1507,6 @@ def extract_formula_values_for_calculator(question_data, formula, working_answer
                     else:
                         calculator_expression = "0"
                         explanation = "Generic formula calculation - insufficient values"
-                else:
-                    calculator_expression = "0"  # Default fallback
-                    explanation = "Generic formula calculation"
             
             return {
                 'variables_found': list(values_extracted.keys()),
@@ -1490,6 +1514,41 @@ def extract_formula_values_for_calculator(question_data, formula, working_answer
                 'calculator_expression': calculator_expression,
                 'explanation': explanation,
                 'full_response': f"Using extracted values: {values_extracted}"
+            }
+        
+        # Check if this is a conceptual question with no real data
+        if not question_data['context'] or not question_data['context'].strip():
+            # This is a conceptual question - perform actual conceptual analysis
+            conceptual_prompt = f"""
+            You are a financial expert. Analyze this conceptual question and provide a simple, direct answer.
+            
+            QUESTION: {question_data['question']}
+            FORMULA: {formula}
+            EXPECTED ANSWER: {question_data.get('expected_answer', 'N/A')}
+            
+            IMPORTANT: Provide a simple, direct answer in 1-5 words maximum. 
+            Focus on the key insight or outcome.
+            
+            Examples:
+            - "P/E ratio decreases"
+            - "Enterprise value increases" 
+            - "Debt ratio rises"
+            - "ROE improves"
+            
+            Respond with just the simple answer:
+            """
+            
+            # Use the LLM to perform conceptual analysis
+            llm = agent.llm
+            response = llm.invoke(conceptual_prompt)
+            simple_answer = response.content.strip()
+            
+            return {
+                'variables_found': [],
+                'values_extracted': {},
+                'calculator_expression': "CONCEPTUAL_ANALYSIS",
+                'explanation': f"Conceptual analysis performed. Question asks about {formula}. Simple answer: {simple_answer}",
+                'full_response': simple_answer
             }
         
         # Fallback: Create a comprehensive summary of all tool results

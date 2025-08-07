@@ -1,0 +1,12 @@
+version: '3.8'
+
+
+services:
+  financeqa:
+    build: .
+    container_name: financeqa-agent
+    env_file: .env
+    volumes:
+      - ./data:/app/data
+    stdin_open: true
+    tty: true
