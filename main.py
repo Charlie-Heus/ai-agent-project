@@ -1,18 +1,22 @@
 #!/usr/bin/env python3
 """
-FinanceQA AI Agent - Clean Version
-==================================
+FinanceQA AI Agent
 
-This is a clean version with only the three requested menu options:
-1. Pick Question
-2. Run Demo of Agent Thought Process  
-3. Exit
+Provides a simple CLI with three options:
+1) Pick Question (process a selected dataset question)
+2) Run Demo of Agent Thought Process (forced tool-usage walkthrough)
+3) Exit
+
+Core components:
+- FinanceQAAgent: tools and ReAct agent for financial Q&A
+- FinanceAgentCLI: text menu wiring for user interaction
+- Environment checks and startup housekeeping
 """
 
 import os
 import asyncio
 import json
-import re 
+import re
 import requests
 import pickle
 import numpy as np
@@ -24,7 +28,7 @@ from datetime import datetime
 from dotenv import load_dotenv, find_dotenv
 load_dotenv(find_dotenv(), override=True)
 
-# LangChain imports for agent functionality
+# ==== LangChain / LLM Tooling ===============================================================
 from langchain.agents import AgentExecutor, create_react_agent
 from langchain.agents.format_scratchpad import format_log_to_str
 from langchain.agents.output_parsers import ReActSingleInputOutputParser
@@ -33,30 +37,19 @@ from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain.prompts import PromptTemplate
 from langchain.schema import AgentAction, AgentFinish
 
-# External API libraries
-import requests
+# ==== External APIs / Libraries =============================================================
 import yfinance as yf
-import numexpr # Using numexpr for safer evaluation
-
-# NEW: Import for Google Custom Search API
+import numexpr  # Safer numeric evaluation
 from googleapiclient.discovery import build
 from google.api_core.exceptions import GoogleAPIError
 
 
 class FinanceQAAgent:
-    """
-    Main agent class that orchestrates financial question answering.
-    
-    Core Logic: Question -> Plan Tools -> Execute Tools -> Synthesize Answer
-    Uses LangChain's ReAct pattern for iterative reasoning and tool usage.
-    """
+    """Orchestrates tools and ReAct flow for financial question answering."""
     
     def __init__(self):
-        """Initialize the agent with LLM and tools."""
-        self.llm = ChatOpenAI(
-            temperature=0.1,
-            model="gpt-3.5-turbo",
-        )
+        """Initialize the LLM and register available tools."""
+        self.llm = ChatOpenAI(temperature=0.1, model="gpt-3.5-turbo")
         
         self.tools = [
             self.finnhub_search_tool,
@@ -66,21 +59,20 @@ class FinanceQAAgent:
             self.fetch_webpage_content_tool,
             self.rag_search_tool,
             self.formula_analysis_tool,
-            self.key_terms_search_tool
+            self.key_terms_search_tool,
         ]
         
         self.agent = self._create_financial_agent()
-        
         self.agent_executor = AgentExecutor(
             agent=self.agent,
             tools=self.tools,
             verbose=True,
             max_iterations=10,
-            handle_parsing_errors=True
+            handle_parsing_errors=True,
         )
     
     def _create_financial_agent(self):
-        """Create a LangChain ReAct agent optimized for financial analysis."""
+        """Create a ReAct-style agent with a task-specific prompt."""
         financial_prompt = PromptTemplate.from_template("""
         You are an expert financial analyst AI agent. Your job is to answer financial questions accurately using available tools.
 
@@ -123,15 +115,11 @@ class FinanceQAAgent:
         """)
         
         return create_react_agent(self.llm, self.tools, financial_prompt)
-    
-    # TOOL DEFINITIONS
+
+    # ==== Tool Definitions =================================================================
     @tool
     def finnhub_search_tool(query: str) -> str:
-        """
-        Search Finnhub for comprehensive financial data and company information.
-        Use for: Company profiles, financial metrics, earnings data, stock quotes.
-        Input: Company ticker symbol (e.g., 'AAPL', 'MSFT', 'TSLA')
-        """
+        """Search Finnhub for company profile, metrics, and recent earnings by ticker."""
         try:
             # Use Finnhub API for financial data
             finnhub_api_key = os.getenv('FINNHUB_API_KEY')
@@ -182,11 +170,7 @@ class FinanceQAAgent:
 
     @tool 
     def web_search_tool(query: str) -> str:
-        """
-        Search the web for current financial information and news.
-        Use for: Recent news, market updates, company announcements, financial analysis.
-        Input: Search query (e.g., 'Apple Q4 2023 earnings', 'Tesla stock price today')
-        """
+        """Search the web via Google Custom Search for current financial information/news."""
         try:
             # Use Google Custom Search API
             google_api_key = os.getenv('GOOGLE_API_KEY')
@@ -223,11 +207,7 @@ class FinanceQAAgent:
 
     @tool
     def fetch_webpage_content_tool(url: str) -> str:
-        """
-        Fetch and extract text content from a webpage.
-        Use for: Getting detailed information from financial websites, SEC filings, company pages.
-        Input: URL to fetch (e.g., 'https://www.sec.gov/Archives/edgar/data/...')
-        """
+        """Fetch and extract plain text from a webpage (first ~1500 chars)."""
         try:
             headers = {
                 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
@@ -258,11 +238,7 @@ class FinanceQAAgent:
 
     @tool
     def financial_calculator_tool(expression: str) -> str:
-        """
-        Perform financial calculations safely.
-        Use for: Ratios, percentages, basic arithmetic for financial metrics.
-        Input: Mathematical expression (e.g., '1000 * 1.05', '50000 / 1000000 * 100')
-        """
+        """Safely evaluate a numeric expression for financial calculations."""
         try:
             # Use numexpr for safe evaluation
             result = numexpr.evaluate(expression)
@@ -272,11 +248,7 @@ class FinanceQAAgent:
 
     @tool
     def knowledge_base_tool(query: str) -> str:
-        """
-        Search the financial knowledge base for definitions and concepts.
-        Use for: Understanding financial terms, ratios, and concepts.
-        Input: Financial term or concept (e.g., 'P/E ratio', 'EBITDA', 'debt to equity')
-        """
+        """Return simple definitions for common financial terms and ratios."""
         # Simple knowledge base - can be expanded
         knowledge_base = {
             'pe ratio': 'Price-to-Earnings ratio = Market Price per Share / Earnings per Share. Measures how much investors are willing to pay for each dollar of earnings.',
@@ -310,11 +282,7 @@ class FinanceQAAgent:
 
     @tool
     def rag_search_tool(query: str) -> str:
-        """
-        Search the FinanceQA dataset using RAG (Retrieval-Augmented Generation).
-        Use for: Finding relevant financial data and context from the dataset.
-        Input: Search query (e.g., 'Costco revenue 2024', 'gross profit calculation')
-        """
+        """Query FinanceQA dataset (keyword-based) for relevant question-context-answer snippets."""
         try:
             # Load the FinanceQA dataset
             data_path = Path("data/financeqa_test.jsonl")
@@ -376,11 +344,7 @@ class FinanceQAAgent:
 
     @tool
     def formula_analysis_tool(question: str) -> str:
-        """
-        Analyze a financial question to extract the required formula and key terms.
-        Use for: Understanding what calculation is needed and what data points to find.
-        Input: Financial question (e.g., 'What is the P/E ratio?', 'Calculate gross profit margin')
-        """
+        """Use LLM to extract formula, key terms, and synonyms relevant to a question."""
         try:
             # Create LLM instance for this tool
             from langchain_openai import ChatOpenAI
@@ -431,11 +395,7 @@ class FinanceQAAgent:
 
     @tool
     def key_terms_search_tool(key_terms: str, synonyms: str, context: str) -> str:
-        """
-        Search for specific key terms in a given context.
-        Use for: Finding specific financial data points in documents or contexts.
-        Input: key_terms (comma-separated), synonyms (JSON format), context (text to search in)
-        """
+        """Locate key terms/synonyms in a context and return nearby snippets."""
         try:
             # Parse key terms and synonyms
             terms = [term.strip() for term in key_terms.split(',')]
@@ -481,11 +441,7 @@ class FinanceQAAgent:
 
     @tool
     def direct_rag_search_tool(question_num: int) -> str:
-        """
-        Directly search for a specific question number in the FinanceQA dataset.
-        Use for: Getting the exact context and data for a specific question.
-        Input: Question number (integer)
-        """
+        """Directly fetch a specific question entry from the FinanceQA dataset by number."""
         try:
             # Load the FinanceQA dataset
             data_path = Path("data/financeqa_test.jsonl")
@@ -510,7 +466,7 @@ class FinanceQAAgent:
             return f"Error accessing question {question_num}: {str(e)}"
 
     async def process_question(self, question: str) -> Dict[str, Any]:
-        """Main method to process a financial question using the custom control flow."""
+        """Run the end-to-end control flow for a raw free-form question."""
         start_time = datetime.now()
         try:
             # Import control flow functions
@@ -591,10 +547,13 @@ class FinanceQAAgent:
 
 
 class FinanceAgentCLI:
-    def __init__(self): 
+    """Minimal CLI for interacting with the FinanceQA agent."""
+    
+    def __init__(self):
         self.agent = FinanceQAAgent()
     
     def run(self):
+        """Start the text-based menu loop."""
         print("\nWelcome to FinanceQA AI Agent!")
         print("=" * 50)
         while True:
@@ -614,7 +573,7 @@ class FinanceAgentCLI:
                 print("Invalid option. Please select 1-3.")
     
     async def run_pick_question(self):
-        """Allow user to pick a specific question from the dataset."""
+        """Allow user to pick a specific question from the dataset and process it."""
         print("\nPick Question from FinanceQA Dataset")
         print("Type 'quit' to return to main menu.")
         
@@ -690,7 +649,7 @@ class FinanceAgentCLI:
             print(f"Error processing question: {e}")
     
     async def run_demo_thought_process(self):
-        """Run a demo showing the agent's thought process."""
+        """Run a fixed demo showing the agent's iterative thought process over one question."""
         print("\nDemo of Agent Thought Process")
         print("=" * 40)
         
@@ -750,8 +709,10 @@ class FinanceAgentCLI:
         print("Exiting...")
 
 
-def check_environment():
-    """Check if required environment variables are available."""
+# ==== Environment & Entry Point =============================================================
+
+def check_environment() -> bool:
+    """Verify required API keys are available and warn for optional ones."""
     print("Checking environment...")
     
     required_keys = ['OPENAI_API_KEY', 'GOOGLE_API_KEY', 'CUSTOM_SEARCH_ENGINE_ID']

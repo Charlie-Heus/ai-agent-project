@@ -133,6 +133,8 @@ The agent is designed to significantly improve upon the 54.1% baseline through:
 - **Iterative refinement** of information gathering
 - **Safe calculation execution** with error handling
 
+However, while I did implement many tools that offer useful functionality, I was not able get the agent working well enough to outpreform the benchmark. Many improvements can be made on top of the foundation of this project.
+
 *Note: Formal benchmark evaluation is included in the evaluation suite.*
 
 ## Example Usage
@@ -188,10 +190,6 @@ python organize_financeqa.py
 3. Commit changes: `git commit -am 'Add feature'`
 4. Push to branch: `git push origin feature-name`
 5. Submit a Pull Request
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Acknowledgments
 

@@ -1,19 +1,34 @@
 #!/usr/bin/env python3
 """
-Simple Control Operator for FinanceQA Dataset
-============================================
+Control utilities and orchestration for the FinanceQA agent.
 
-This module provides a simple interface to select and view questions from the FinanceQA dataset.
+Responsibilities:
+- Load and present questions from the FinanceQA dataset
+- Analyze questions to determine required formulas and key terms
+- Search for and extract values from context
+- Assess information completeness and iterate with tool calls when needed
+- Persist a "working answer" artifact during processing
+
+This module is intentionally verbose in its console output to make the
+agent's thought process transparent during demos and debugging.
 """
 
 import json
 import os
 from pathlib import Path
+from typing import Any, Dict, List, Optional
+
 from dotenv import load_dotenv
 from main import FinanceQAAgent
 
 # Load environment variables
 load_dotenv()
+
+# Type aliases for readability
+QuestionData = Dict[str, Any]
+WorkingAnswer = Dict[str, Any]
+ToolResult = Dict[str, Any]
+Assessment = Dict[str, Any]
 
 def clear_working_answers():
     """Clear the working answer file at the start of a new run."""
@@ -39,7 +54,12 @@ def clear_working_answers():
         print(f"⚠️  Warning: Could not clear working answers: {str(e)}")
 
 def display_final_result(calc_result_str, question_data):
-    """Display the final result with expected answer."""
+    """Pretty-print the final calculator result alongside the expected answer.
+    
+    Args:
+        calc_result_str: String produced by the calculator tool.
+        question_data: Minimal question metadata (expects 'expected_answer').
+    """
     if "=" in calc_result_str:
         result_part = calc_result_str.split("=")[-1].strip()
         print(f"\n📊 Final Result: {result_part}")
@@ -49,7 +69,14 @@ def display_final_result(calc_result_str, question_data):
         print(f"🎯 Expected Answer: {question_data.get('expected_answer', 'N/A')}")
 
 def save_calculator_result(question_data, formula, calc_result, calc_result_str):
-    """Save the final calculator result to the working answer file."""
+    """Persist the calculator outcome into the working answer artifact.
+    
+    Args:
+        question_data: Question metadata (number, text, etc.).
+        formula: The formula string used for computation.
+        calc_result: Calculator payload including extracted variables and expression.
+        calc_result_str: Calculator result string to persist.
+    """
     try:
         # Extract the actual numerical result
         if "=" in calc_result_str:
@@ -64,7 +91,15 @@ def save_calculator_result(question_data, formula, calc_result, calc_result_str)
         print(f"⚠️  Warning: Could not save calculator result: {str(e)}")
 
 def save_tool_result(question_data, tool_name, tool_input, tool_result, reasoning=""):
-    """Save a tool result to the working answer file."""
+    """Append a tool invocation result to the working answer file.
+    
+    Args:
+        question_data: Question metadata.
+        tool_name: Name of the tool invoked.
+        tool_input: Input payload given to the tool.
+        tool_result: Raw tool result (string or JSON-serializable content).
+        reasoning: Optional short reason for tool choice.
+    """
     try:
         import json
         import os
@@ -112,7 +147,11 @@ def save_tool_result(question_data, tool_name, tool_input, tool_result, reasonin
         print(f"⚠️  Warning: Could not save tool result: {str(e)}")
 
 def load_financeqa_dataset():
-    """Load the FinanceQA dataset from JSONL file."""
+    """Load the FinanceQA dataset from JSONL file into a list of questions.
+    
+    Returns:
+        List of dicts for each question or None if load fails.
+    """
     try:
         data_path = Path("data/financeqa_test.jsonl")
         if not data_path.exists():
@@ -133,40 +172,9 @@ def load_financeqa_dataset():
         print(f"❌ Error loading dataset: {e}")
         return None
 
-def select_question(questions):
-    """Ask user to select a question and return the selected question data."""
-    print(f"\n📊 Choose a question from 1-{len(questions)}:")
-    choice = input("> ").strip()
-    
-    if choice.lower() in ['quit', 'exit', 'q']:
-        return None
-    
-    try:
-        question_num = int(choice)
-        if 1 <= question_num <= len(questions):
-            # Get the selected question
-            selected_question = questions[question_num - 1]
-            return {
-                'question_num': question_num,
-                'question': selected_question.get('question', 'N/A'),
-                'context': selected_question.get('context', ''),
-                'expected_answer': selected_question.get('answer', 'N/A'),
-                'company': selected_question.get('company', 'N/A'),
-                'question_type': selected_question.get('question_type', 'N/A')
-            }
-        else:
-            print(f"❌ Please enter a number between 1 and {len(questions)}")
-            return None
-            
-    except ValueError:
-        print("❌ Please enter a valid number or 'quit'")
-        return None
-    except Exception as e:
-        print(f"❌ Error processing question: {e}")
-        return None
 
 def analyze_question_requirements(question, agent):
-    """Analyze what information is needed to answer the question using the formula analysis tool."""
+    """Run the formula analysis tool to determine required formula and terms."""
     try:
         # Ensure we're calling the tool correctly
         if hasattr(agent, 'formula_analysis_tool'):
@@ -178,7 +186,7 @@ def analyze_question_requirements(question, agent):
         return f"Error analyzing question requirements: {str(e)}"
 
 def extract_formula_from_analysis(formula_analysis):
-    """Extract the formula from the formula analysis output."""
+    """Parse and return the formula line from the analysis output."""
     try:
         lines = formula_analysis.split('\n')
         for line in lines:
@@ -190,7 +198,7 @@ def extract_formula_from_analysis(formula_analysis):
         return f"Error extracting formula: {str(e)}"
 
 def save_working_answer(question_data, formula, values=None, result=None):
-    """Save a working answer containing the question and formula."""
+    """Create/update the working answer file with the current state."""
     import json
     import os
     
@@ -232,7 +240,7 @@ def save_working_answer(question_data, formula, values=None, result=None):
         return f"❌ Error saving working answer: {str(e)}"
 
 def extract_values_from_context(question_data, formula, context_chunks, agent):
-    """Extract the necessary values from context chunks and calculate the result."""
+    """Use the LLM to extract numeric values from context aligned to a formula."""
     try:
         # Create a prompt for the LLM to extract values
         extraction_prompt = f"""
@@ -321,8 +329,8 @@ def extract_values_from_context(question_data, formula, context_chunks, agent):
             'full_response': f"Error extracting values: {str(e)}"
         }
 
-def assess_information_completeness(question_data, formula, extraction_result, agent):
-    """Ask the LLM if it needs more information to answer the question completely."""
+def assess_information_completeness(question_data, formula, extraction_result, agent, demo_mode=False):
+    """Assess whether enough information exists to provide a complete answer."""
     try:
         # Create a prompt to assess if more information is needed
         assessment_prompt = f"""
@@ -384,8 +392,12 @@ def assess_information_completeness(question_data, formula, extraction_result, a
             elif line.startswith('CONFIDENCE:'):
                 confidence = line.replace('CONFIDENCE:', '').strip()
         
-        # Use the actual LLM response instead of hardcoded values
-        # complete_answer, missing_info, additional_help, final_answer, confidence are already parsed above
+        # For demo mode, force the assessment to be "No" to ensure the iterative loop is entered
+        if demo_mode:
+            complete_answer = "No"
+            missing_info = "Demo mode: Forcing iterative tool exploration"
+            additional_help = "Demo mode: Will explore all available tools"
+            confidence = "High"
         
         return {
             'complete_answer': complete_answer,
@@ -406,121 +418,10 @@ def assess_information_completeness(question_data, formula, extraction_result, a
             'full_response': f"Error assessing completeness: {str(e)}"
         }
 
-def search_rag_for_missing_info(question_data, assessment_result, agent):
-    """Use direct RAG search to find missing financial information from the FinanceQA dataset."""
-    try:
-        # Use the question number directly for instant cache lookup
-        question_num = question_data['question_num']
-        
-        print(f"\n🔍 Searching FinanceQA dataset for relevant information...")
-        print(f"🔎 Question Number: {question_num}")
-        
-        try:
-            search_result = agent.direct_rag_search_tool.invoke({
-                "question_num": question_num
-            })
-            print(f"✅ Direct RAG search completed successfully")
-        except Exception as e:
-            search_result = f"Error calling direct RAG search tool: {str(e)}"
-            print(f"❌ Error calling direct RAG search tool: {str(e)}")
-        
-        print(f"\n📊 Direct RAG Search Results:")
-        print("=" * 50)
-        if search_result and str(search_result).strip():
-            print(search_result)
-        else:
-            print("❌ No results returned from direct RAG search")
-            print("This could be due to:")
-            print("  - FinanceQA dataset not loaded")
-            print("  - Invalid question number")
-            print("  - Tool configuration issues")
-        print("=" * 50)
-        
-        return {
-            'question_num': question_num,
-            'search_result': search_result
-        }
-        
-    except Exception as e:
-        return {
-            'question_num': "Unknown",
-            'search_result': f"Error: {str(e)}"
-        }
 
-def search_webpage_for_missing_info(question_data, assessment_result, agent):
-    """Use fetch webpage content tool to find missing financial information from a specific URL."""
-    try:
-        # Use URLs that work in the test file
-        test_urls = [
-            "https://finance.yahoo.com/news/",
-            "https://www.sec.gov/",
-            "https://httpbin.org/html"
-        ]
-        
-        print(f"\n🔍 Fetching webpage content for financial information...")
-        
-        search_result = None
-        successful_url = None
-        
-        for i, test_url in enumerate(test_urls):
-            print(f"🌐 Trying URL {i+1}: {test_url}")
-            
-            try:
-                search_result = agent.fetch_webpage_content_tool.invoke({
-                    "url": test_url
-                })
-                
-                # Check if the result indicates success (not an error message)
-                if search_result and not search_result.startswith("Error") and not search_result.startswith("Could not fetch"):
-                    print(f"✅ Webpage content fetched successfully from URL {i+1}")
-                    successful_url = test_url
-                    break
-                else:
-                    print(f"❌ Failed to fetch from URL {i+1}: {search_result}")
-                    if i < len(test_urls) - 1:
-                        print(f"🔄 Trying next URL...")
-                    else:
-                        print(f"❌ All URLs failed")
-                        search_result = f"Error: All URLs failed to fetch content. Last result: {search_result}"
-                        
-            except Exception as e:
-                print(f"❌ Exception fetching from URL {i+1}: {str(e)}")
-                if i < len(test_urls) - 1:
-                    print(f"🔄 Trying next URL...")
-                else:
-                    print(f"❌ All URLs failed")
-                    search_result = f"Error: All URLs failed to fetch content. Last error: {str(e)}"
-        
-        print(f"\n📊 Webpage Content Results:")
-        print("=" * 50)
-        if search_result and str(search_result).strip() and not search_result.startswith("Error:"):
-            # Truncate long content for display
-            display_result = str(search_result)
-            if len(display_result) > 1000:
-                display_result = display_result[:1000] + "...\n[Content truncated for display]"
-            print(display_result)
-        else:
-            print("❌ No content returned from webpage fetch")
-            print("This could be due to:")
-            print("  - All URLs returning errors")
-            print("  - Network connectivity issues")
-            print("  - Websites blocking requests")
-            print("  - Tool configuration issues")
-        print("=" * 50)
-        
-        return {
-            'url': successful_url or "All URLs failed",
-            'search_result': search_result
-        }
-        
-    except Exception as e:
-        return {
-            'url': "Unknown",
-            'search_result': f"Error: {str(e)}"
-        }
 
 def search_key_terms_in_context(question_data, agent, formula_analysis):
-    """Search for key terms in the context using the key terms search tool."""
+    """Search for key terms (with synonyms) inside provided context text."""
     try:
         import json
         # Parse the formula analysis to extract key terms and synonyms
@@ -631,7 +532,7 @@ def search_key_terms_in_context(question_data, agent, formula_analysis):
         return f"Error searching for key terms: {str(e)}"
 
 def display_question_info(question_data, demo_mode=False):
-    """Display the selected question information."""
+    """High-level flow to analyze, search, extract values, and either calculate or iterate."""
     if not question_data:
         return
     
@@ -698,7 +599,7 @@ def display_question_info(question_data, demo_mode=False):
         
         # Assess if more information is needed
         print(f"\n🤔 Assessing information completeness...")
-        assessment_result = assess_information_completeness(question_data, formula, extraction_result, agent)
+        assessment_result = assess_information_completeness(question_data, formula, extraction_result, agent, demo_mode)
         
         print(f"\n📊 Information Assessment:")
         print(f"Complete Answer Possible: {assessment_result['complete_answer']}")
@@ -707,7 +608,7 @@ def display_question_info(question_data, demo_mode=False):
         print(f"Confidence Level: {assessment_result['confidence']}")
         
         # If assessment says "Yes", extract formula values and calculate
-        if assessment_result['complete_answer'] == "Yes":
+        if assessment_result['complete_answer'] == "Yes" and not demo_mode:
             print(f"\n🧮 Complete answer possible! Extracting formula values...")
             
             # Create working answer from the extraction result
@@ -752,10 +653,46 @@ def display_question_info(question_data, demo_mode=False):
                     except Exception as e:
                         print(f"❌ Error executing calculator: {str(e)}")
         
-        # If assessment says "No", start the iterative tool selection loop
-        if assessment_result['complete_answer'] == "No":
+        # If assessment says "No" OR if this is demo mode, start the iterative tool selection loop
+        if assessment_result['complete_answer'] == "No" or demo_mode:
             print(f"\n🔍 Assessment indicates missing information.")
             print(f"🔄 Starting iterative tool selection loop...")
+            
+            # Start the iterative tool selection loop
+            loop_result = iterative_tool_selection_loop(question_data, formula, agent, assessment_result, demo_mode)
+            
+            print(f"\n📊 Final Loop Results:")
+            print(f"Tool calls made: {loop_result['tool_calls_made']}")
+            print(f"Reason for ending: {loop_result['reason']}")
+            print(f"Final assessment: Complete Answer Possible = {loop_result['final_assessment']['complete_answer']}")
+            print(f"Final confidence: {loop_result['final_assessment']['confidence']}")
+            
+            # Execute calculator if we have a calculator expression from the loop
+            if 'calculator_expression' in loop_result and loop_result['calculator_expression']:
+                calc_result = loop_result['calculator_expression']
+                print(f"\n🧮 Calculator Expression:")
+                print(f"   Variables found: {calc_result['variables_found']}")
+                print(f"   Values extracted: {calc_result['values_extracted']}")
+                print(f"   Expression: {calc_result['calculator_expression']}")
+                print(f"   Explanation: {calc_result['explanation']}")
+                
+                # Execute the calculator expression
+                if calc_result['calculator_expression'] and calc_result['calculator_expression'] != "Error in extraction":
+                    try:
+                        calculator_result = agent.financial_calculator_tool.invoke({
+                            "expression": calc_result['calculator_expression']
+                        })
+                        print(f"\n🔢 Calculator Result:")
+                        print(f"   {calculator_result}")
+                        
+                        # Show just the calculated result
+                        calc_result_str = str(calculator_result)
+                        display_final_result(calc_result_str, question_data)
+                        
+                        # Save the final calculator result
+                        save_calculator_result(question_data, formula, calc_result, calc_result_str)
+                    except Exception as e:
+                        print(f"❌ Error executing calculator: {str(e)}")
             
     else:
         # PATH 2: NO CONTEXT - New logic for questions without context
@@ -872,7 +809,17 @@ def display_question_info(question_data, demo_mode=False):
             print(f"❌ Error submitting answer: {str(e)}")
             
             # Start the iterative tool selection loop
-            loop_result = iterative_tool_selection_loop(question_data, formula, agent, assessment_result, demo_mode)
+            # For demo mode, create a forced "No" assessment to ensure the loop is entered
+            if demo_mode:
+                forced_assessment = {
+                    'complete_answer': "No",
+                    'missing_info': "Demo mode: Forcing iterative tool exploration",
+                    'additional_help': "Demo mode: Will explore all available tools",
+                    'confidence': "High"
+                }
+                loop_result = iterative_tool_selection_loop(question_data, formula, agent, forced_assessment, demo_mode)
+            else:
+                loop_result = iterative_tool_selection_loop(question_data, formula, agent, assessment_result, demo_mode)
             
             print(f"\n📊 Final Loop Results:")
             print(f"Tool calls made: {loop_result['tool_calls_made']}")
@@ -908,19 +855,7 @@ def display_question_info(question_data, demo_mode=False):
                         print(f"❌ Error executing calculator: {str(e)}")
 
 def iterative_tool_selection_loop(question_data, formula, agent, initial_assessment_result, demo_mode=False):
-    """
-    Implement the iterative tool selection loop when Complete Answer Possible = No.
-    
-    The LLM can choose between:
-    - finnhub_search_tool
-    - web_search_tool  
-    - knowledge_base_tool
-    - rag_search_tool
-    - fetch_webpage_content_tool
-    
-    After each tool use, update working answer and reassess completeness.
-    Break after 5 tool calls or when assessment says "Yes".
-    """
+    """Iteratively invoke tools to gather missing info until complete or max iterations."""
     print(f"\n🔄 Starting iterative tool selection loop...")
     print(f"📊 Initial assessment: Complete Answer Possible = {initial_assessment_result['complete_answer']}")
     
@@ -930,6 +865,17 @@ def iterative_tool_selection_loop(question_data, formula, agent, initial_assessm
     # Initialize loop state
     tool_calls_made = 0
     max_tool_calls = 5
+    
+    # Try to load existing working answer to preserve any previously extracted values
+    existing_working_answer = {}
+    try:
+        filename = "working_answers/working_answers.json"
+        if os.path.exists(filename):
+            with open(filename, 'r') as f:
+                existing_working_answer = json.load(f)
+    except Exception as e:
+        print(f"⚠️  Warning: Could not load existing working answer: {str(e)}")
+    
     current_working_answer = {
         'question_num': question_data['question_num'],
         'question': question_data['question'],
@@ -937,6 +883,11 @@ def iterative_tool_selection_loop(question_data, formula, agent, initial_assessm
         'tool_results': [],
         'timestamp': __import__('datetime').datetime.now().isoformat()
     }
+    
+    # Preserve any previously extracted values
+    if 'extraction_result' in existing_working_answer:
+        current_working_answer['extraction_result'] = existing_working_answer['extraction_result']
+        print(f"🔍 Preserved previously extracted values: {existing_working_answer['extraction_result'].get('values', {})}")
     
     # Available tools for the LLM to choose from
     available_tools = {
@@ -1273,7 +1224,7 @@ def iterative_tool_selection_loop(question_data, formula, agent, initial_assessm
     }
 
 def update_working_answer_with_tool_results(question_data, working_answer):
-    """Update the working answer file with new tool results."""
+    """Persist the updated working answer (including tool results) to disk."""
     try:
         filename = "working_answers/working_answers.json"
         
@@ -1289,7 +1240,7 @@ def update_working_answer_with_tool_results(question_data, working_answer):
         return f"❌ Error updating working answer: {str(e)}"
 
 def assess_information_completeness_with_tool_results(question_data, formula, working_answer, agent, demo_mode=False):
-    """Assess if we have enough information to answer the question completely, considering tool results."""
+    """Reassess completeness incorporating accumulated tool results."""
     try:
         # Create a comprehensive prompt that includes all tool results
         tool_results_summary = ""
@@ -1377,13 +1328,9 @@ def assess_information_completeness_with_tool_results(question_data, formula, wo
         }
 
 def extract_formula_values_for_calculator(question_data, formula, working_answer, agent):
-    """
-    Extract values from tool results and prepare a calculator expression.
+    """Convert extracted values into a calculator-ready numeric expression.
     
-    This function:
-    1. Analyzes the formula to identify required variables
-    2. Uses already extracted values from extraction_result
-    3. Creates a calculator-ready expression with actual values
+    Returns a structure containing variables found, values, expression, and explanation.
     """
     try:
         # Check if we have already extracted values
@@ -1392,7 +1339,40 @@ def extract_formula_values_for_calculator(question_data, formula, working_answer
             values_extracted = working_answer['extraction_result']['values']
             
             # Create calculator expression from the extracted values
-            if formula.lower().startswith('adjusted ebitda'):
+            if 'margin' in formula.lower():
+                # For margin calculations: Margin = (Value / Total) * 100
+                if 'adjusted ebitda' in formula.lower():
+                    adjusted_ebitda = values_extracted.get('Adjusted Ebitda', 0)
+                    total_revenue = values_extracted.get('Total Revenue', 0)
+                    
+                    if total_revenue > 0:
+                        calculator_expression = f"({adjusted_ebitda} / {total_revenue}) * 100"
+                        explanation = f"This calculation divides Adjusted EBITDA ({adjusted_ebitda}) by Total Revenue ({total_revenue}) and multiplies by 100 to get the Adjusted EBITDA Margin as a percentage."
+                    else:
+                        calculator_expression = "0"
+                        explanation = "Cannot calculate margin with zero revenue"
+                elif 'ebitda' in formula.lower():
+                    ebitda = values_extracted.get('EBITDA', 0)
+                    total_revenue = values_extracted.get('Total Revenue', 0)
+                    
+                    if total_revenue > 0:
+                        calculator_expression = f"({ebitda} / {total_revenue}) * 100"
+                        explanation = f"This calculation divides EBITDA ({ebitda}) by Total Revenue ({total_revenue}) and multiplies by 100 to get the EBITDA Margin as a percentage."
+                    else:
+                        calculator_expression = "0"
+                        explanation = "Cannot calculate margin with zero revenue"
+                else:
+                    # Generic margin calculation
+                    numerator = values_extracted.get(list(values_extracted.keys())[0], 0) if values_extracted else 0
+                    denominator = values_extracted.get(list(values_extracted.keys())[1], 1) if len(values_extracted) > 1 else 1
+                    
+                    if denominator > 0:
+                        calculator_expression = f"({numerator} / {denominator}) * 100"
+                        explanation = f"This calculation divides {list(values_extracted.keys())[0]} ({numerator}) by {list(values_extracted.keys())[1]} ({denominator}) and multiplies by 100 to get the margin as a percentage."
+                    else:
+                        calculator_expression = "0"
+                        explanation = "Cannot calculate margin with zero denominator"
+            elif formula.lower().startswith('adjusted ebitda'):
                 # For Adjusted EBITDA formula: Adjusted EBITDA = EBITDA + Adjustments
                 # Check if we already have a calculated EBITDA value
                 if 'EBITDA' in values_extracted and values_extracted['EBITDA'] > 0:
@@ -1414,7 +1394,7 @@ def extract_formula_values_for_calculator(question_data, formula, working_answer
                     calculator_expression = f"({net_income} + {interest} + {taxes} + {depreciation} + {amortization}) + {adjustments}"
                     explanation = f"This calculation first computes EBITDA by adding Net Income ({net_income}), Interest ({interest}), Taxes ({taxes}), Depreciation ({depreciation}), and Amortization ({amortization}), then adds Adjustments ({adjustments}) to get Adjusted EBITDA for the year ending 2024."
                 
-            elif formula.lower().startswith('ebitda'):
+            elif formula.lower().startswith('ebitda') or 'unadjusted ebitda' in formula.lower():
                 # For EBITDA formula: EBITDA = Net Income + Interest + Taxes + Depreciation + Amortization
                 net_income = values_extracted.get('Net Income', 0)
                 interest = values_extracted.get('Interest', 0)
@@ -1551,6 +1531,115 @@ def extract_formula_values_for_calculator(question_data, formula, working_answer
                 'full_response': simple_answer
             }
         
+        # First, try to extract values from any previous extraction results in tool results
+        extracted_values = {}
+        for result in working_answer.get('tool_results', []):
+            if 'extraction_result' in result and 'values' in result['extraction_result']:
+                extracted_values.update(result['extraction_result']['values'])
+        
+                    # If we found extracted values, use them directly
+            if extracted_values:
+                print(f"🔍 Found previously extracted values: {extracted_values}")
+                
+                # Create calculator expression based on formula type
+                if 'margin' in formula.lower():
+                    # For margin calculations: Margin = (Value / Total) * 100
+                    if 'adjusted ebitda' in formula.lower():
+                        adjusted_ebitda = extracted_values.get('Adjusted Ebitda', 0)
+                        total_revenue = extracted_values.get('Total Revenue', 0)
+                        
+                        if total_revenue > 0:
+                            calculator_expression = f"({adjusted_ebitda} / {total_revenue}) * 100"
+                            explanation = f"This calculation divides Adjusted EBITDA ({adjusted_ebitda}) by Total Revenue ({total_revenue}) and multiplies by 100 to get the Adjusted EBITDA Margin as a percentage."
+                        else:
+                            calculator_expression = "0"
+                            explanation = "Cannot calculate margin with zero revenue"
+                    elif 'ebitda' in formula.lower():
+                        ebitda = extracted_values.get('EBITDA', 0)
+                        total_revenue = extracted_values.get('Total Revenue', 0)
+                        
+                        if total_revenue > 0:
+                            calculator_expression = f"({ebitda} / {total_revenue}) * 100"
+                            explanation = f"This calculation divides EBITDA ({ebitda}) by Total Revenue ({total_revenue}) and multiplies by 100 to get the EBITDA Margin as a percentage."
+                        else:
+                            calculator_expression = "0"
+                            explanation = "Cannot calculate margin with zero revenue"
+                    else:
+                        # Generic margin calculation
+                        numerator = extracted_values.get(list(extracted_values.keys())[0], 0) if extracted_values else 0
+                        denominator = extracted_values.get(list(extracted_values.keys())[1], 1) if len(extracted_values) > 1 else 1
+                        
+                        if denominator > 0:
+                            calculator_expression = f"({numerator} / {denominator}) * 100"
+                            explanation = f"This calculation divides {list(extracted_values.keys())[0]} ({numerator}) by {list(extracted_values.keys())[1]} ({denominator}) and multiplies by 100 to get the margin as a percentage."
+                        else:
+                            calculator_expression = "0"
+                            explanation = "Cannot calculate margin with zero denominator"
+                elif formula.lower().startswith('adjusted ebitda'):
+                    net_income = extracted_values.get('Net Income', 0)
+                    interest = extracted_values.get('Interest', 0)
+                    taxes = extracted_values.get('Taxes', 0)
+                    depreciation = extracted_values.get('Depreciation', 0)
+                    amortization = extracted_values.get('Amortization', 0)
+                    adjustments = extracted_values.get('Adjustments', 0)
+                    
+                    calculator_expression = f"({net_income} + {interest} + {taxes} + {depreciation} + {amortization}) + {adjustments}"
+                    explanation = f"This calculation first computes EBITDA by adding Net Income ({net_income}), Interest ({interest}), Taxes ({taxes}), Depreciation ({depreciation}), and Amortization ({amortization}), then adds Adjustments ({adjustments}) to get Adjusted EBITDA."
+                
+            elif formula.lower().startswith('ebitda') or 'unadjusted ebitda' in formula.lower():
+                net_income = extracted_values.get('Net Income', 0)
+                interest = extracted_values.get('Interest', 0)
+                taxes = extracted_values.get('Taxes', 0)
+                depreciation = extracted_values.get('Depreciation', 0)
+                amortization = extracted_values.get('Amortization', 0)
+                
+                calculator_expression = f"{net_income} + {interest} + {taxes} + {depreciation} + {amortization}"
+                explanation = f"This calculation adds Net Income ({net_income}), Interest ({interest}), Taxes ({taxes}), Depreciation ({depreciation}), and Amortization ({amortization}) to determine EBITDA."
+                
+            elif formula.lower().startswith('gross profit'):
+                revenue = extracted_values.get('Revenue', 0)
+                cost_of_goods_sold = extracted_values.get('Cost of Goods Sold', 0)
+                
+                calculator_expression = f"{revenue} - {cost_of_goods_sold}"
+                explanation = f"This calculation subtracts the Cost of Goods Sold ({cost_of_goods_sold}) from the Revenue ({revenue}) to calculate the Gross Profit."
+                
+            elif 'adjusted ebit' in formula.lower():
+                revenue = extracted_values.get('Revenue', 0)
+                cost_of_goods_sold = extracted_values.get('Cost of Goods Sold', 0)
+                operating_expenses = extracted_values.get('Operating Expenses', 0)
+                adjustments = extracted_values.get('Adjustments', 0)
+                
+                calculator_expression = f"({revenue} - {cost_of_goods_sold} - {operating_expenses}) + {adjustments}"
+                explanation = f"This calculation first computes EBIT by subtracting Cost of Goods Sold ({cost_of_goods_sold}) and Operating Expenses ({operating_expenses}) from Revenue ({revenue}), then adds Adjustments ({adjustments}) to get Adjusted EBIT."
+                
+            elif 'ebit' in formula.lower():
+                revenue = extracted_values.get('Revenue', 0)
+                cost_of_goods_sold = extracted_values.get('Cost of Goods Sold', 0)
+                operating_expenses = extracted_values.get('Operating Expenses', 0)
+                
+                calculator_expression = f"{revenue} - {cost_of_goods_sold} - {operating_expenses}"
+                explanation = f"This calculation subtracts the Cost of Goods Sold ({cost_of_goods_sold}) and Operating Expenses ({operating_expenses}) from the Revenue ({revenue}) to calculate EBIT."
+                
+            else:
+                # Generic formula handling
+                variables = list(extracted_values.keys())
+                if len(variables) >= 2:
+                    var1, var2 = variables[0], variables[1]
+                    val1, val2 = extracted_values[var1], extracted_values[var2]
+                    calculator_expression = f"{val1} + {val2}"
+                    explanation = f"Generic calculation using available values: {var1} ({val1}) + {var2} ({val2})"
+                else:
+                    calculator_expression = "0"
+                    explanation = "Generic formula calculation - insufficient values"
+            
+            return {
+                'variables_found': list(extracted_values.keys()),
+                'values_extracted': extracted_values,
+                'calculator_expression': calculator_expression,
+                'explanation': explanation,
+                'full_response': f"Using previously extracted values: {extracted_values}"
+            }
+        
         # Fallback: Create a comprehensive summary of all tool results
         tool_results_summary = ""
         for i, result in enumerate(working_answer.get('tool_results', [])):
@@ -1658,24 +1747,3 @@ def main():
     if not questions:
         return
     
-    while True:
-        # Get question selection
-        question_data = select_question(questions)
-        
-        if question_data is None:
-            print("\n👋 Goodbye!")
-            break
-        
-        # Display the question information
-        display_question_info(question_data)
-        
-        # Ask if user wants to continue
-        print(f"\n🔄 Select another question? (y/n):")
-        continue_choice = input("> ").strip().lower()
-        
-        if continue_choice not in ['y', 'yes', 'continue']:
-            print("\n👋 Goodbye!")
-            break
-
-if __name__ == "__main__":
-    main() 
