@@ -199,19 +199,6 @@ def financial_calculator_tool(expression: str) -> str:
 
 Futher work is needed to be done in order to beat the benchmark preformance. I think this could be achieved through greater focus on continuous prompt generation. The functionality of all of the tools I built can also be improved to offer greater preformance boost for the LLM of choice.
 
-### Performance Characteristics
-
-**Measured Performance Metrics**:
-- Average processing time: 15-45 seconds per question
-- Tool success rate: 85-95% per individual tool
-- Cache hit rate: 60-80% for repeated operations
-- Memory usage: <500MB for typical sessions
-
-**Bottlenecks Identified**:
-1. **Embedding Generation**: 2-5 seconds per chunk
-2. **Web API Calls**: 1-3 seconds per request
-3. **LLM Reasoning**: 1-2 seconds per inference
-
 ## Technical Implementation Details
 
 ### Tool Implementation Philosophy
@@ -268,44 +255,6 @@ def formula_analysis_tool(question: str) -> str:
 
 **Innovation**: Domain-specific prompting with financial formula templates
 
-## Architectural Scalability
-
-### Performance Optimization Strategies
-
-#### 1. Caching and Memoization
-**Current Implementation**: Basic embeddings caching
-**Improvements Needed**:
-- Redis-based distributed caching for multi-instance deployment
-- Intelligent cache invalidation based on data freshness
-- Compressed storage for large context embeddings
-
-#### 2. Asynchronous Tool Execution
-**Current**: Sequential tool execution
-**Proposed**: Parallel execution where dependencies allow
-**Impact**: 40-60% reduction in total processing time for complex questions
-
-#### 3. Tool Response Streaming
-**Current**: Wait for complete tool responses
-**Proposed**: Stream partial results for user feedback
-**User Experience**: Real-time progress indication and early insights
-
-### Deployment Considerations
-
-#### 1. Container Orchestration
-**Current**: Single container deployment
-**Proposed**: Microservices architecture
-- **API Gateway**: Request routing and rate limiting
-- **Tool Services**: Specialized containers for external API integration
-- **Processing Engine**: Core agent logic with auto-scaling
-- **Cache Layer**: Distributed caching for shared state
-
-#### 2. Monitoring and Observability
-**Requirements**:
-- Tool performance metrics and success rates
-- Question processing latency tracking
-- Error categorization and alerting
-- Cost tracking for external API usage
-
 ## Conclusion
 
 The FinanceQA AI Agent represents a significant advancement over non-agentic approaches through:
@@ -322,5 +271,3 @@ The architecture balances complexity with maintainability, performance with accu
 - Robust error handling and graceful degradation
 - Comprehensive tool ecosystem with smart selection logic
 - Transparent and auditable decision-making process
-
-This foundation provides a strong platform for achieving significant improvements over the 54.1% baseline while maintaining the ability to evolve and scale as requirements grow.
