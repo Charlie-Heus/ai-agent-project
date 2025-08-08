@@ -183,14 +183,6 @@ python organize_financeqa.py
 | `CUSTOM_SEARCH_ENGINE_ID` | ✅ | Google Custom Search Engine ID |
 | `FINNHUB_API_KEY` | ⚠️ | Optional: Enhanced financial data access |
 
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature-name`
-3. Commit changes: `git commit -am 'Add feature'`
-4. Push to branch: `git push origin feature-name`
-5. Submit a Pull Request
-
 ## Acknowledgments
 
 - Built for the Veris AI candidate task
